@@ -1,0 +1,33 @@
+<% form_tag hardwares_path, :method => 'get' do %>
+	<p>
+		<%= text_field_tag :search, params[:search] %>
+		<%= submit_tag "Search Hardwares", :name => nil %>
+	</p>
+<% end %>
+
+<h1>Hardwares</h1>
+
+<table>
+  <tr>
+	<th>SN</th>
+	<th>Type</th>
+    <th>Ip</th>
+    <th>Mac</th>
+    <th>User</th>
+  </tr>
+
+<% for hardware in @hardwares %>
+  <tr>
+	<td><%=link_to hardware.serial_number, hardware %></td>
+	<td><%=link_to hardware.hardware_type.name, :action => 'index', :hardware_type => hardware.hardware_type %></td>
+    <td><%=h hardware.ip %></td>
+    <td><%=h hardware.mac %></td>
+    <td><%if hardware.owner %><%=h hardware.owner.name %> <% end %> </td>
+    <td><%= link_to 'Destroy', hardware, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New hardware', new_hardware_path %>

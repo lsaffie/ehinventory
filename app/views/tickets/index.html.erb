@@ -1,0 +1,28 @@
+<h1>Listing tickets</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Body</th>
+    <th>Hardware</th>
+    <th>Software</th>
+    <th>Document</th>
+  </tr>
+
+<% for ticket in @tickets %>
+  <tr>
+    <td><%=h ticket.title %></td>
+    <td><%=h ticket.body %></td>
+    <td><%=h ticket.hardware_id %></td>
+    <td><%=h ticket.software_id %></td>
+    <td><%=h ticket.document_id %></td>
+    <td><%= link_to 'Show', ticket %></td>
+    <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
+    <td><%= link_to 'Destroy', ticket, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New ticket', new_ticket_path %>

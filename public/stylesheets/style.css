@@ -1,0 +1,16 @@
+body { 
+background-color:#4B4E50; 
+color: #333;
+padding: 20px 10%;
+font: 13px Helvetica;
+}
+
+#container {
+border: 5px solid white;
+padding: 20px;
+background: #687971;
+}
+
+#loginlink {
+	float: right;
+}

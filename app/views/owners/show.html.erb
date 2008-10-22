@@ -1,0 +1,18 @@
+<p>
+  <b>Name:</b>
+  <%=h @owner.name %>
+</p>
+
+<p>
+  <b>Group:</b>
+  <%=h @owner.group.name %>
+</p>
+
+<p>
+  <b>Created at:</b>
+  <%=h @owner.created_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_owner_path(@owner) %> |
+<%= link_to 'Back', owners_path %>

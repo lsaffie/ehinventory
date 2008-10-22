@@ -1,0 +1,21 @@
+<h1>Users</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Group</th>
+    <th>Created at</th>
+  </tr>
+
+<% for owner in @owners %>
+  <tr>
+    <td><%= link_to owner.name, owner %></td>
+    <td><%= link_to owner.group.name, owner.group %></td>
+    <td><%= link_to 'Destroy', owner, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New owner', new_owner_path %>

@@ -1,0 +1,61 @@
+<p>
+  <b>Name:</b>
+  <%= @software.name %>
+</p>
+
+<p>
+  <b>Owner:</b>
+  <%=h @software.owner %>
+</p>
+
+<p>
+  <b>License key:</b>
+  <%=h @software.license_key %>
+</p>
+
+<p>
+  <b>Number of licenses:</b>
+  <%=h @software.number_of_licenses %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= textilize(@software.description) %>
+</p>
+<%= link_to 'Edit', edit_software_path(@software) %>
+
+<p>
+<h2>Current assignment</h2>
+<% for assignment in @software.assignments %>
+	<%= link_to assignment.hardware.serial_number, assignment.hardware%>
+	<%= link_to 'Remove', assignment, :confirm => 'Are you sure?', :method => :delete %> <br>
+<% end %>
+	
+<h2>License Assignment </h2>
+<% form_for(@software) do |f| %>
+	<%= select("hardware","hardware_id", Hardware.find(:all).collect {|p| [p.serial_number, p.id]}, { :include_blank => true}) %>
+	<%= f.submit "Add Licensee" %>
+<% end %>
+
+
+<h2>New ticket</h2>
+<% form_for :ticket, @ticket, :url => software_ticket_path(@software,@ticket) do |f| %>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body, :rows => 5 %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<h3>Current Tickets</h3>
+<% for ticket in @software.tickets %>
+	<%= link_to ticket.title, software_ticket_path(@software, ticket) %>
+	<%= ticket.created_at %>
+	<%= link_to 'Destroy', ticket, :confirm => 'Are you sure?', :method => :delete %><br>
+<% end %>
