@@ -12,7 +12,12 @@
   <b>Created at:</b>
   <%=h @owner.created_at %>
 </p>
+<h3>Assigned Hardwares</h3>
+<% for hardware in @owner.hardwares %>
+	<%= link_to hardware.serial_number, hardware %>
+	<%=  hardware.hardware_type.name %><br>
+<% end %>
 
-
+<br>
 <%= link_to 'Edit', edit_owner_path(@owner) %> |
 <%= link_to 'Back', owners_path %>

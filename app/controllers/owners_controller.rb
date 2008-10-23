@@ -15,6 +15,7 @@ class OwnersController < ApplicationController
   # GET /owners/1.xml
   def show
     @owner = Owner.find(params[:id])
+    @hardwares = @owner.hardwares
 
     respond_to do |format|
       format.html # show.html.erb
