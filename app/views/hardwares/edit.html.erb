@@ -3,7 +3,8 @@
 <% form_for(@hardware) do |f| %>
   <%= f.error_messages %>
 
-	<%= select("hardware_type","hardware_type_id", HardwareType.find(:all).collect {|p| [p.name, p.id]}, { :include_blank => true}) %>
+	<%= f.label :hardware_type %><br/>
+	<%= select("hardware_type","hardware_type_id", HardwareType.find(:all).collect {|p| [p.name, p.id]}, { :include_blank => false, :selected => @hardware.hardware_type}) %>
 	
   <p>
     <%= f.label :serial_number %><br />
