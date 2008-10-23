@@ -83,8 +83,6 @@ class HardwaresController < ApplicationController
   # DELETE /hardwares/1
   # DELETE /hardwares/1.xml
   def destroy
-    require 'ruby-debug'
-    debugger
     
     @hardware = Hardware.find(params[:id])
     if @hardware.assignments
