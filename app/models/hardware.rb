@@ -5,6 +5,9 @@ class Hardware < ActiveRecord::Base
   belongs_to :hardware_type
   belongs_to :owner
   
+  validates_presence_of :serial_number
+
+  
   def self.search(search,type)
     if search
       find(:all, :conditions => ['serial_number LIKE ?', "%#{search}%"])

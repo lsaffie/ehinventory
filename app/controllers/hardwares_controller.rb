@@ -43,8 +43,6 @@ class HardwaresController < ApplicationController
   # POST /hardwares
   # POST /hardwares.xml
   def create
-    require 'ruby-debug'
-    debugger
     @hardware = Hardware.new(params[:hardware])
     @hardware.hardware_type = HardwareType.find(params[:hardware_type]["hardware_type_id"])
 
