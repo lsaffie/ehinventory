@@ -3,7 +3,7 @@ class OwnersController < ApplicationController
   # GET /owners
   # GET /owners.xml
   def index
-    @owners = Owner.find(:all)
+    @owners = Owner.find(:all, :order => "group_id, name")
 
     respond_to do |format|
       format.html # index.html.erb
