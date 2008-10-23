@@ -8,9 +8,9 @@ class Software < ActiveRecord::Base
   
   def self.search(search)
     if search
-      find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+      find(:all, :conditions => ['name LIKE ?', "%#{search}%"], :order => "owner, name")
     else
-      find(:all)
+      find(:all, :order => "owner, name")
     end
   end
 end
