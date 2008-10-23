@@ -14,7 +14,7 @@ class Hardware < ActiveRecord::Base
     elsif type
       find(:all, :conditions => ['hardware_type_id LIKE ?', "%#{type}"], :order => "hardware_type_id, serial_number" )
     else
-      find(:all)
+      find(:all, :order => "hardware_type_id, serial_number")
     end
   end
   
