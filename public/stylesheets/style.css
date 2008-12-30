@@ -2,8 +2,12 @@ body {
 background-color:#4B4E50; 
 color: #333;
 padding: 20px 10%;
-font: 15px Helvetica;
+font: 13px Helvetica;
 }
+
+
+
+
 
 #container {
 border: 5px solid white;
