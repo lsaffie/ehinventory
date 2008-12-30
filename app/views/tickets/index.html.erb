@@ -11,13 +11,11 @@
 
 <% for ticket in @tickets %>
   <tr>
-    <td><%=h ticket.title %></td>
+    <td><%= link_to ticket.title, ticket %></td>
     <td><%=h ticket.body %></td>
     <td><%=h ticket.hardware_id %></td>
     <td><%=h ticket.software_id %></td>
     <td><%=h ticket.document_id %></td>
-    <td><%= link_to 'Show', ticket %></td>
-    <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
     <td><%= link_to 'Destroy', ticket, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>

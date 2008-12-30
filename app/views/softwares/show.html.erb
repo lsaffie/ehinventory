@@ -28,6 +28,7 @@
 <h2>Current assignment</h2>
 <% for assignment in @software.assignments %>
 	<%= link_to assignment.hardware.serial_number, assignment.hardware%>
+	<%#= Owner.find(assignment.hardware.owner_id).name %>
 	<%= link_to 'Remove', assignment, :confirm => 'Are you sure?', :method => :delete %> <br>
 <% end %>
 	
