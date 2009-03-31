@@ -6,7 +6,7 @@ class Document < ActiveRecord::Base
   
     
   def self.search(search, page)
-      paginate :per_page => 10, :page => page,
+      paginate :per_page => 15, :page => page,
                :conditions => ['title LIKE ? or body LIKE ?', "%#{search}%", "%#{search}%"],
                :order => 'title'
   end
