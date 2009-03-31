@@ -2,7 +2,7 @@ class Document < ActiveRecord::Base
   has_many :tickets
   
   ## Paperclip implementation
-  has_attached_file :file
+  # has_attached_file :file
   
     
   def self.search(search, page)
