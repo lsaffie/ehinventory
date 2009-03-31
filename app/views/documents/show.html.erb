@@ -7,6 +7,11 @@
   <b>Body:</b>
     <%= textilize(@document.body) %>
 </p>
+<p>
+  <!-- <b>Files</b><br /> -->
+  <%#= image_tag @document.file.url(:thumb) %>
+  <%#= link_to @document.file, @document.file.url %> <br>
+<p>
 
 <%= link_to 'Edit', edit_document_path(@document) %> |
 <%= link_to 'Back', documents_path %>

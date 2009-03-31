@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081024005238) do
+ActiveRecord::Schema.define(:version => 20090331142841) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "hardware_id"
@@ -23,6 +23,9 @@ ActiveRecord::Schema.define(:version => 20081024005238) do
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
   end
 
   create_table "groups", :force => true do |t|

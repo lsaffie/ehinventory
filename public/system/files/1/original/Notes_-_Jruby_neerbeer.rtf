@@ -1,0 +1,112 @@
+{\rtf1\ansi\ansicpg1252\cocoartf949\cocoasubrtf350
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww10100\viewh9960\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+
+\f0\fs24 \cf0 Download jruby from jruby.org\
+\
+extract it /opt/jruby-1.1.5\
+\
+to test it\
+\
+ 1568  bin/jruby samples/swing2.rb \
+ 1569  bin/jruby samples/java2.rb \
+\
+\
+ 1582  export PATH=$PATH:/opt/jruby-1.1.5/bin/\
+\
+ 1596  jruby -S gem install -y rake\
+ 1597  jruby -S gem install rails\
+\
+ 1605  jruby -S gem install ActiveRecord-JDBC\
+ 1606  jruby -S gem install BlueCloth\
+ 1607  jruby -S gem install RedCloth\
+ 1608  jruby -S gem install facets\
+ 1609  jruby -S gem install mongrel\
+ 1610  jruby -S gem install mongrel_jcluster\
+\
+\
+## download mysql-connector from mysql site\
+cp mysql-connector-java-5.1.7-bin.jar  /opt/jruby-1.1.5/lib/\
+\
+export CLASSPATH=/opt/jruby-1.1.5/lib/mysql-connector-java-5.1.7-bin.jar \
+\
+ 1750  jruby -S gem uninstall ActiveRecord-JDBC\
+ 1752  jruby -S gem install activerecord-jdbc-adapter\
+ 1754  jruby -S gem install activerecord-jdbcmysql-adapter\
+ 1755  jruby -S gem list activerecord\
+\
+\
+database.yml\
+\
+development:\
+    adapter: jdbc\
+    driver: com.mysql.jdbc.Driver\
+    url: jdbc:mysql://localhost/gtd_test\
+    username: gtd_test\
+    password: gtd_test\
+\
+\
+ jruby -S gem install yard\
+\
+ jruby -S gem install daemons\
+\
+jruby -S gem install haml\
+ \
+Remove  directory activemessaging\
+\
+\
+jruby -S gem install active_presenter\
+jruby -S gem install mislav-will_paginate\
+\
+jruby -S gem install GData\
+jruby -S gem install hpricot\
+jruby -S gem install configatron\
+jruby -S gem install activesupport\
+jruby -S gem install googlecharts\
+jruby -S gem install gchartrb\
+\
+\
+#####\
+INSTALLING JBOSS\
+uncompress /opt/jboss\
+\
+cd docs/examples/jca\
+sudo cp mysql-ds.xml ../../../server/default/deploy/\
+vi server/default/deploy/mysql-ds.xml\
+\
+extract mysql-connector-java-5.1.7/\
+\
+cd mysql-connector-java\
+sudo cp mysql-connector-java-5.1.7-bin.jar ../jboss-4.2.3.GA/server/default/lib/\
+  585  export JBOSS_HOME=/opt/jboss-4.2.3.GA/\
+  586  cd $JBOSS_HOME\
+  589  sudo bin/run.sh  ## TO START SERVER\
+\
+ 2066  jruby -S gem install jruby-openssl\
+ 2070  jruby script/plugin install svn://rubyforge.org/var/svn/jruby-extras/trunk/rails-integration/plugins/goldspike --force\
+ 2071  mate .\
+ 2072  touch config/war.rb\
+\
+create jboss-web-xml.erb  in WEB-INF \
+\
+configure production db\
+\
+\
+in environment.rb\
+require 'jdbc_adapter'\
+\
+\
+##### SOMETHING IN BETWEEN ######\
+\
+jruby -S rake war:standalone:create\
+\
+  501  cd $JBOSS_HOME\
+  502  ls\
+  503  bin/run.sh \
+\
+cp Web.war /opt/jboss-4.2.3.GA/server/default/deploy/\
+\
+\
+}

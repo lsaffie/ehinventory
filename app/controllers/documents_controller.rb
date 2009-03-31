@@ -3,7 +3,7 @@ class DocumentsController < ApplicationController
   # GET /documents
   # GET /documents.xml
   def index
-    @documents = Document.search(params[:search])
+    @documents = Document.search(params[:search], params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

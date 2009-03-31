@@ -1,11 +1,13 @@
 class Document < ActiveRecord::Base
   has_many :tickets
   
-  def self.search(search)
-    if search
-      find(:all, :conditions => ['title LIKE ? or body LIKE ?', "%#{search}%", "%#{search}%"])
-    else
-      find(:all)
-    end
+  ## Paperclip implementation
+  has_attached_file :file
+  
+    
+  def self.search(search, page)
+      paginate :per_page => 10, :page => page,
+               :conditions => ['title LIKE ? or body LIKE ?', "%#{search}%", "%#{search}%"],
+               :order => 'title'
   end
 end
