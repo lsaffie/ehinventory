@@ -9,21 +9,20 @@
 
 <table>
   <tr>
-	<th>SN</th>
-	<th>Type</th>
-    <th>Ip</th>
-    <th>Mac</th>
+    <th>SN</th>
+    <th>Type</th>
     <th>User</th>
+    <th>Ip</th>
+    <th>Action</th>
   </tr>
 
 <% for hardware in @hardwares %>
-  <tr>
+  <tr class="<%=cycle('even','odd')%>">
 	<td><%=link_to hardware.serial_number, hardware %></td>
 	<td><%=link_to hardware.hardware_type.name, :action => 'index', :hardware_type => hardware.hardware_type %></td>
-    <td><%=h hardware.ip %></td>
-    <td><%=h hardware.mac %></td>
-    <td><%if hardware.owner %><%=h hardware.owner.name %> <% end %> </td>
-    <td><%= link_to 'Destroy', hardware, :confirm => 'Are you sure?', :method => :delete %></td>
+  <td><%if hardware.owner %><%=h hardware.owner.name %> <% end %> </td>
+  <td><%=h hardware.ip %></td>
+  <td><%= link_to 'Destroy', hardware, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

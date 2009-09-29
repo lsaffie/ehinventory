@@ -72,4 +72,5 @@
 <% for ticket in @hardware.tickets %>
 	<%= link_to ticket.title, hardware_ticket_path(@hardware, ticket) %>
 	<%= link_to 'Destroy', ticket, :confirm => 'Are you sure?', :method => :delete %><br>
+  <br />
 <% end %>

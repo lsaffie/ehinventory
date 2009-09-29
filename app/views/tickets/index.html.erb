@@ -10,7 +10,7 @@
   </tr>
 
 <% for ticket in @tickets %>
-  <tr>
+  <tr class="<%=cycle('even','odd')%>">
     <td><%= link_to ticket.title, ticket %></td>
     <td><%=h ticket.body %></td>
     <td><%=h ticket.hardware_id %></td>

@@ -5,15 +5,55 @@ padding: 20px 10%;
 font: 13px Helvetica;
 }
 
+table {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+table th {
+  text-align: ;
+  border-bottom: 1px solid black;
+  background: #e0e0e0;
+}
+
+tr.odd {
+  background: #DAE4E9;
+}
+
+tr:hover {
+  background: #77919C;
+}
+
+a{ 
+  color: #323232;
+  text-decoration: none;
+}
+
+a:hover{
+  color: #1d1d1d;
+}
 
 
+#header {
+  padding: 10px 20px;
+  background: #e0e0e0;
+  border: 1px solid #FFF;
+  border-bottom: none;
+}
 
+#header a{ 
+  text-decoration: none;
+  color: #555555;
+  font: 12pt Helvetica;
+}
+
+#header a:hover {
+  color: #2F3233;
+}
 
 #container {
-border: 5px solid white;
+border: 1px solid white;
 padding: 20px;
-background: #687971;
-background: #8A9494;
+background: #fdfdfd;
 }
 
 #loginlink {

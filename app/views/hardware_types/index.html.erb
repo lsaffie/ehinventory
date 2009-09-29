@@ -1,12 +1,13 @@
 <h1>Hardware Types</h1>
 
 <table>
-  <tr>
+  <thead>
     <th>Name</th>
-  </tr>
+    <th colspan='3'>Actions</th>
+  </thead>
 
 <% for hardware_type in @hardware_types %>
-  <tr>
+  <tr class="<%=cycle('even','odd')%>">
     <td><%=h hardware_type.name %></td>
     <td><%= link_to 'Show', hardware_type %></td>
     <td><%= link_to 'Edit', edit_hardware_type_path(hardware_type) %></td>
