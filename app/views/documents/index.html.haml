@@ -1,0 +1,31 @@
+-form_tag documents_path, :method => 'get' do
+  %p
+    =text_field_tag :search, params[:search]
+    =submit_tag "Search Documents", :name => nil
+ 
+%h1
+  Documents
+ 
+%table
+  %thead
+    %th
+      Title
+    %th
+      Creation Date
+    %th
+      Actions
+             
+  %tbody
+    -for document in @documents
+      %tr{:class => cycle('even','odd')}
+        %td
+          =link_to document.title, document
+        %td
+          =document.created_at.strftime("%m/%d/%Y")
+        %td
+          =link_to 'Destroy', document, :confirm => 'Are you sure?', :method => :delete
+                         
+= will_paginate @documents
+%br
+
+=link_to 'New document', new_document_path
