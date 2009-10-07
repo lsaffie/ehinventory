@@ -47,7 +47,6 @@
 
 <h2>User Assignment </h2>
 <% form_for(@hardware) do |f| %>
-	<%#= select("owner","owner_id", Owner.find(:all).collect {|p| [p.name, p.id]}, { :include_blank => false }) %>
 	<%= select("owner","owner_id", Owner.find(:all, :order => "name").collect {|p| [p.name, p.id]}, { :include_blank => false, :selected => @hardware.owner.id}) %>
 	<%= f.submit "Add User" %>
 <% end %>
