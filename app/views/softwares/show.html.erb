@@ -26,11 +26,34 @@
 
 <p>
 <h2>Current assignment</h2>
-<% for assignment in @software.assignments %>
-	<%= link_to assignment.hardware.serial_number, assignment.hardware%>
-	<%#= Owner.find(assignment.hardware.owner_id).name %>
-	<%= link_to 'Remove', assignment, :confirm => 'Are you sure?', :method => :delete %> <br>
-<% end %>
+<table>
+  <thead>
+    <th>
+      Hardware ID
+    </th>
+    <th>
+      Owner Name
+    </th>
+    <th>
+      Action
+    </th>
+  </thead>
+  <tbody>
+    <% for assignment in @software.assignments %>
+      <tr>
+        <td>
+          <%= link_to assignment.hardware.serial_number, assignment.hardware%>
+        </td>
+        <td>
+          <%= print_owner(assignment) %>
+        </td>
+        <td>
+          <%= link_to 'Remove', assignment, :confirm => 'Are you sure?', :method => :delete %> <br>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 	
 <h2>License Assignment </h2>
 <% form_for(@software) do |f| %>
