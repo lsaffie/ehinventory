@@ -57,7 +57,7 @@
 	
 <h2>License Assignment </h2>
 <% form_for(@software) do |f| %>
-	<%= select("hardware","hardware_id", Hardware.find(:all, :order => "serial_number").collect {|p| [p.owner.name, p.id]}, { :include_blank => true}) %>
+	<%= select("hardware","hardware_id", Hardware.find(:all, :order => "serial_number").collect {|p| [p.serial_number + '-' + p.owner.name, p.id]}, { :include_blank => true}) %>
 	<%= f.submit "Add Licensee" %>
 <% end %>
 
