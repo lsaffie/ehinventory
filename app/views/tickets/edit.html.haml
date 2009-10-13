@@ -1,0 +1,21 @@
+%h1
+  Editing ticket
+
+-form_for(@ticket) do |f| 
+  =f.error_messages 
+
+  %p
+    =f.label :title 
+    =f.text_field :title 
+  
+  %p
+    =f.label :body 
+    =f.text_area :body 
+  
+
+  %p
+    =f.submit "Update" 
+  
+=link_to 'Show', @ticket  
+|
+=link_to 'Back', tickets_path 

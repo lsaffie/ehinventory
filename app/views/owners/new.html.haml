@@ -1,0 +1,14 @@
+%h1
+  New owner
+
+-form_for(@owner) do |f| 
+  =f.error_messages 
+  %p
+    =f.label :name 
+    =f.text_field :name 
+  %p
+    =select("group","group_id", Group.find(:all).collect {|p| [p.name, p.id]}, { :include_blank => true}) 
+  %p
+    =f.submit "Create" 
+  
+=link_to 'Back', owners_path 

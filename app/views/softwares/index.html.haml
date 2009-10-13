@@ -1,0 +1,28 @@
+-form_tag softwares_path, :method => 'get' do 
+  %p
+    =text_field_tag :search, params[:search] 
+    =submit_tag "Search Softwares", :name => nil 
+%h1
+  Softwares
+
+%table
+  %thead
+    %th
+      Name
+    %th
+      Owner
+    %th
+      Actions
+
+  %tbody
+    -for software in @softwares 
+      %tr{:class => cycle('even','odd')}
+        %td
+          =link_to software.name, software 
+        %td
+          =h software.owner 
+        %td
+          =link_to 'Destroy', software, :confirm => 'Are you sure?', :method => :delete 
+
+%br
+=link_to 'New software', new_software_path 

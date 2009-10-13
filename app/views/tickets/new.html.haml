@@ -1,0 +1,30 @@
+%h1
+  New ticket
+
+-form_for(@ticket) do |f| 
+  =f.error_messages 
+
+  %p
+    =f.label :title 
+    =f.text_field :title 
+  
+  %p
+    =f.label :body 
+    =f.text_area :body 
+  
+  %p
+    =f.label :hardware_id 
+    =f.text_field :hardware_id 
+  
+  %p
+    =f.label :software_id 
+    =f.text_field :software_id 
+  
+  %p
+    =f.label :document_id 
+    =f.text_field :document_id 
+  
+  %p
+    =f.submit "Create" 
+  
+=link_to 'Back', tickets_path 

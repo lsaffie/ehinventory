@@ -1,0 +1,31 @@
+%h1
+  New hardware
+
+-form_for(@hardware) do |f| 
+  =f.error_messages 
+
+  =f.label :hardware_type
+  =select("hardware_type","hardware_type_id", HardwareType.find(:all).collect {|p| [p.name, p.id]}, { :include_blank => true}) 
+
+  %p
+    =f.label :serial_number 
+    =f.text_field :serial_number 
+  %p
+    =f.label :brand 
+    =f.text_field :brand 
+  %p
+    =f.label :model 
+    =f.text_field :model 
+  %p
+    =f.label :ip 
+    =f.text_field :ip 
+  %p
+    =f.label :mac 
+    =f.text_field :mac 
+  %p
+    =f.label :description 
+    =f.text_area :description 
+  %p
+    =f.submit "Create" 
+
+=link_to 'Back', hardwares_path 

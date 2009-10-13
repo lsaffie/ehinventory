@@ -1,0 +1,32 @@
+%h1
+  Editing software
+
+-form_for(@software) do |f| 
+  =f.error_messages 
+
+  %p
+    =f.label :name 
+    =f.text_field :name 
+  
+  %p
+    =f.label :owner 
+    =f.text_field :owner 
+  
+  %p
+    =f.label :license_key 
+    =f.text_field :license_key 
+  
+  %p
+    =f.label :number_of_licenses 
+    =f.text_field :number_of_licenses 
+  
+  %p
+    =f.label :description 
+    =f.text_area :description 
+  
+  %p
+    =f.submit "Update" 
+  
+
+=link_to 'Show', @software  |
+=link_to 'Back', softwares_path 

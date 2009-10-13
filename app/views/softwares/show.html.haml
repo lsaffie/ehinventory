@@ -1,0 +1,71 @@
+%p
+  %b
+    Name:
+  =@software.name 
+
+%p
+  %b
+    Owner:
+  =h @software.owner 
+
+%p
+  %b
+  License key:
+  =h @software.license_key
+
+%p
+  %b
+    Number of licenses:
+  =h @software.number_of_licenses
+
+%p
+  %b
+  Description:
+  = textilize(@software.description)
+
+=link_to 'Edit', edit_software_path(@software)
+
+%p
+  %h2
+    Current assignment
+  %table
+    %thead
+      %th
+        Hardware ID
+      %th
+        Owner Name
+      %th
+        Action
+  %tbody
+    -for assignment in @software.assignments
+      %tr
+        %td
+          =link_to assignment.hardware.serial_number, assignment.hardware
+        %td
+          =print_owner(assignment)
+        %td
+          =link_to 'Remove', assignment, :confirm => 'Are you sure?', :method => :delete
+%h2
+  License Assignment
+-form_for(@software) do |f|
+  =select("hardware","hardware_id", Hardware.find(:all, :order => "serial_number").collect {|p| [p.serial_number + '-' + p.owner.name, p.id]}, { :include_blank => true})
+  =f.submit "Add Licensee"
+
+%h2
+  New ticket
+-form_for :ticket, @ticket, :url => software_ticket_path(@software,@ticket) do |f|
+  %p
+    =f.label :title
+    =f.text_field :title
+  %p
+    =f.label :body
+    =f.text_area :body, :rows => 5
+  %p
+    =f.submit "Create"
+
+%h3
+  Current Tickets
+-for ticket in @software.tickets
+  =link_to ticket.title, software_ticket_path(@software, ticket)
+  =ticket.created_at
+  =link_to 'Destroy', ticket, :confirm => 'Are you sure?', :method => :delete

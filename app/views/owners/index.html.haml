@@ -1,0 +1,23 @@
+%h1
+  Users
+
+%table
+  %tr
+    %th
+      Name
+    %th
+      Group
+    %th
+      Actions
+  
+
+  -for owner in @owners 
+    %tr{:class => cycle('even','odd')}
+      %td
+        =link_to owner.name, owner 
+      %td
+        =link_to owner.group.name, owner.group 
+      %td
+        =link_to 'Destroy', owner, :confirm => 'Are you sure?', :method => :delete 
+  
+=link_to 'New owner', new_owner_path 

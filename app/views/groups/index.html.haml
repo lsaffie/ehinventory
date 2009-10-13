@@ -1,0 +1,22 @@
+%h1
+  Groups
+
+%table
+  %thead
+    %th
+      Name
+    %th{ :html => colspan="3" }
+      Actions
+
+  -for group in @groups 
+    %tr{ :class => cycle('even','odd')}
+      %td
+        =h group.name 
+      %td
+        =link_to 'Show', group 
+      %td
+        =link_to 'Edit', edit_group_path(group) 
+      %td
+        =link_to 'Destroy', group, :confirm => 'Are you sure?', :method => :delete 
+
+=link_to 'New group', new_group_path 

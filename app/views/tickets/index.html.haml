@@ -1,0 +1,33 @@
+%h1
+  Listing tickets
+
+%table
+  %tr
+    %th
+      Title
+    %th
+      Body
+    %th
+      Hardware
+    %th
+      Software
+    %th
+      Document
+  
+
+-for ticket in @tickets 
+  %tr{:class => cycle('even','odd')}
+    %td
+      =link_to ticket.title, ticket 
+    %td
+      =h ticket.body 
+    %td
+      =h ticket.hardware_id 
+    %td
+      =h ticket.software_id 
+    %td
+      =h ticket.document_id 
+    %td
+      =link_to 'Destroy', ticket, :confirm => 'Are you sure?', :method => :delete 
+  
+=link_to 'New ticket', new_ticket_path 
