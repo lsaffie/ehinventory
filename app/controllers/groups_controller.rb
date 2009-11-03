@@ -8,6 +8,7 @@ class GroupsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @groups }
+      format.js { render :layout => false }
     end
   end
 
@@ -48,6 +49,7 @@ class GroupsController < ApplicationController
         flash[:notice] = 'Group was successfully created.'
         format.html { redirect_to(@group) }
         format.xml  { render :xml => @group, :status => :created, :location => @group }
+        format.js
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @group.errors, :status => :unprocessable_entity }
@@ -65,6 +67,7 @@ class GroupsController < ApplicationController
         flash[:notice] = 'Group was successfully updated.'
         format.html { redirect_to(@group) }
         format.xml  { head :ok }
+        format.js
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @group.errors, :status => :unprocessable_entity }
@@ -81,6 +84,11 @@ class GroupsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(groups_url) }
       format.xml  { head :ok }
+      format.js do
+        render :update do |page|
+          page.remove "group_#{@group.id}"
+        end
+      end
     end
   end
 end

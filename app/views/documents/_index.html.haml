@@ -1,0 +1,28 @@
+-form_remote_tag :url => documents_path, :method => 'get' do
+  %p
+    =text_field_tag :search, params[:search]
+    =submit_tag "Search Documents", :name => nil
+ 
+%h1
+  Documents
+ 
+%table{:class => 'index_table'}
+  %thead
+    %th
+      Title
+    %th
+      Creation Date
+    %th
+      Actions
+             
+  %tbody
+    -for document in @documents
+      %tr{:class => cycle('even','odd'), :id => "document_#{document.id}"}
+        %td
+          =link_to_remote document.title, :url => document, :update => 'container', :method => :get
+        %td
+          =document.created_at.strftime("%m/%d/%Y")
+        %td
+          =link_to_remote 'Destroy', :url => document, :confirm => 'Are you sure?', :method => :delete
+                           
+=link_to_remote 'New document', :url => new_document_path, :method => :get, :update => 'container'

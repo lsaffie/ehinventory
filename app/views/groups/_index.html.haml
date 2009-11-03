@@ -1,0 +1,18 @@
+%h1
+  Groups
+
+%table{:class => 'index_table'}
+  %thead
+    %th
+      Name
+    %th{ :html => colspan="3" }
+      Actions
+
+  -for group in @groups 
+    %tr{ :class => cycle('even','odd'), :id => "group_#{group.id}"}
+      %td
+        =link_to_remote group.name, :url => group, :method => :get, :update => 'container'
+      %td
+        =link_to_remote 'Destroy', :url => group, :confirm => 'Are you sure?', :method => :delete 
+
+=link_to_remote 'New group', :url => new_group_path, :update => 'container'

@@ -8,6 +8,7 @@ class OwnersController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @owners }
+      format.js { render :layout => false }
     end
   end
 
@@ -51,6 +52,7 @@ class OwnersController < ApplicationController
         flash[:notice] = 'Owner was successfully created.'
         format.html { redirect_to(@owner) }
         format.xml  { render :xml => @owner, :status => :created, :location => @owner }
+        format.js
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @owner.errors, :status => :unprocessable_entity }
@@ -69,6 +71,7 @@ class OwnersController < ApplicationController
         flash[:notice] = 'Owner was successfully updated.'
         format.html { redirect_to(@owner) }
         format.xml  { head :ok }
+        format.js
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @owner.errors, :status => :unprocessable_entity }
@@ -85,6 +88,11 @@ class OwnersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(owners_url) }
       format.xml  { head :ok }
+      format.js do
+        render :update do |page|
+          page.remove "owner_#{@owner.id}"
+        end
+      end
     end
   end
 end

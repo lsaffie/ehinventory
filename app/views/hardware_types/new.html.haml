@@ -1,7 +1,7 @@
 %h1
   New hardware_type
 
--form_for(@hardware_type) do |f| 
+-form_remote_for(@hardware_type) do |f| 
   =f.error_messages 
 
   %p
@@ -11,4 +11,4 @@
   %p
     =f.submit "Create" 
 
-=link_to 'Back', hardware_types_path 
+=link_to_remote 'List', :url => hardware_types_path, :method => :get, :update => 'container'

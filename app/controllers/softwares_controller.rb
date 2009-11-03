@@ -9,6 +9,7 @@ class SoftwaresController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @softwares }
+      format.js { render :layout => false }
     end
   end
 
@@ -22,6 +23,7 @@ class SoftwaresController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @software }
+      format.js { render :layout => false }
     end
   end
 
@@ -50,6 +52,7 @@ class SoftwaresController < ApplicationController
         flash[:notice] = 'Software was successfully created.'
         format.html { redirect_to(@software) }
         format.xml  { render :xml => @software, :status => :created, :location => @software }
+        format.js
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @software.errors, :status => :unprocessable_entity }
@@ -69,6 +72,7 @@ class SoftwaresController < ApplicationController
         flash[:notice] = 'Software was successfully updated.'
         format.html { redirect_to(@software) }
         format.xml  { head :ok }
+        format.js 
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @software.errors, :status => :unprocessable_entity }
@@ -85,6 +89,11 @@ class SoftwaresController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(softwares_url) }
       format.xml  { head :ok }
+      format.js do
+        render :update do |page|
+          page.remove "software_#{@software.id}"
+        end
+      end
     end
   end
 end

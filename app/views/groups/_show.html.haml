@@ -1,0 +1,6 @@
+%p
+  %b
+    Name:
+  =h @group.name 
+
+=link_to_remote 'Edit', :url => edit_group_path(@group), :method => :get, :update => 'container'  

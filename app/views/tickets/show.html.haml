@@ -22,8 +22,8 @@
 
 
 -if @ticket.hardware 
-	=link_to 'Edit', edit_hardware_ticket_path(@ticket.hardware, @ticket)  
+  =link_to 'Edit', edit_hardware_ticket_path(@ticket.hardware, @ticket)  
 -elsif @ticket.software 
-	=link_to 'Edit', edit_software_ticket_path(@ticket.software, @ticket) 
+  =link_to 'Edit', edit_software_ticket_path(@ticket.software, @ticket) 
 -else 
-	=link_to 'Edit', edit_document_ticket_path(@ticket.document, @ticket) 	
+  =link_to 'Edit', edit_document_ticket_path(@ticket.document, @ticket) 	

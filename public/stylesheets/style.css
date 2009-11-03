@@ -5,21 +5,21 @@ padding: 20px 10%;
 font: 13px Helvetica;
 }
 
-table {
+table.index_table {
   border: 1px solid black;
   border-collapse: collapse;
 }
-table th {
+table.index_table th {
   text-align: ;
   border-bottom: 1px solid black;
   background: #e0e0e0;
 }
 
-tr.odd {
+.index_table tr.odd {
   background: #DAE4E9;
 }
 
-tr:hover {
+.index_table tr:hover {
   background: #77919C;
 }
 
@@ -59,3 +59,9 @@ background: #fdfdfd;
 #loginlink {
 	float: right;
 }
+
+#busy {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+} 

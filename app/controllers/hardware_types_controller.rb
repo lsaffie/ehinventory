@@ -7,6 +7,7 @@ class HardwareTypesController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @hardware_types }
+      format.js { render :layout => false }
     end
   end
 
@@ -47,6 +48,7 @@ class HardwareTypesController < ApplicationController
         flash[:notice] = 'HardwareType was successfully created.'
         format.html { redirect_to(@hardware_type) }
         format.xml  { render :xml => @hardware_type, :status => :created, :location => @hardware_type }
+        format.js
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @hardware_type.errors, :status => :unprocessable_entity }
@@ -64,6 +66,7 @@ class HardwareTypesController < ApplicationController
         flash[:notice] = 'HardwareType was successfully updated.'
         format.html { redirect_to(@hardware_type) }
         format.xml  { head :ok }
+        format.js
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @hardware_type.errors, :status => :unprocessable_entity }
@@ -80,6 +83,11 @@ class HardwareTypesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(hardware_types_url) }
       format.xml  { head :ok }
+      format.js do
+        render :update do |page|
+          page.remove "hardware_type_#{@hardware_type.id}"
+        end
+      end
     end
   end
 end

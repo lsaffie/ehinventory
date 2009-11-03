@@ -1,0 +1,28 @@
+-form_remote_tag :url => softwares_path, :method => 'get' do 
+  %p
+    =text_field_tag :search, params[:search] 
+    =submit_tag "Search Softwares", :name => nil 
+%h1
+  Softwares
+
+%table{:class => 'index_table'}
+  %thead
+    %th
+      Name
+    %th
+      Owner
+    %th
+      Actions
+
+  %tbody
+    -for software in @softwares 
+      %tr{:class => cycle('even','odd'), :id => "software_#{software.id}"}
+        %td
+          =link_to_remote software.name, :url => software_path(software), :update => 'container', :method => :get
+        %td
+          =h software.owner 
+        %td
+          =link_to_remote 'Destroy', :url => software_path(software), :confirm => 'Are you sure?', :method => :delete 
+
+%br
+=link_to_remote 'New software', :url => new_software_path, :update => 'container', :method => :get

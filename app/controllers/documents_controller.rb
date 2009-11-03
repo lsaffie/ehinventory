@@ -8,6 +8,7 @@ class DocumentsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @documents }
+      format.js { render :layout => false }
     end
   end
 
@@ -19,6 +20,7 @@ class DocumentsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @document }
+      format.js { render :layout => false }
     end
   end
 
@@ -48,6 +50,7 @@ class DocumentsController < ApplicationController
         flash[:notice] = 'Document was successfully created.'
         format.html { redirect_to(@document) }
         format.xml  { render :xml => @document, :status => :created, :location => @document }
+        format.js
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @document.errors, :status => :unprocessable_entity }
@@ -65,6 +68,7 @@ class DocumentsController < ApplicationController
         flash[:notice] = 'Document was successfully updated.'
         format.html { redirect_to(@document) }
         format.xml  { head :ok }
+        format.js 
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @document.errors, :status => :unprocessable_entity }
@@ -81,6 +85,11 @@ class DocumentsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(documents_url) }
       format.xml  { head :ok }
+      format.js do
+        render :update do |page|
+          page.remove "document_#{@document.id}"
+        end
+      end
     end
   end
 end

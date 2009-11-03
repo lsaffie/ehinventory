@@ -6,8 +6,9 @@ class TicketsController < ApplicationController
     @tickets = Ticket.find(:all, :conditions => {:hardware_id => params[:hardware_id]})
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html { render :partial => 'ticket', :collection => @hardware.tickets }
       format.xml  { render :xml => @tickets }
+      format.js { render :partial => 'ticket' }
     end
   end
 
@@ -42,14 +43,12 @@ class TicketsController < ApplicationController
   # POST /tickets
   # POST /tickets.xml
   def create
+    @ticket = Ticket.new(params[:ticket])
     if params[:software_id]
-      @ticket = Ticket.new(params[:ticket])
       @ticket.software_id = params[:software_id]
     elsif params[:hardware_id]
-      @ticket = Ticket.new(params[:ticket])
       @ticket.hardware_id = params[:hardware_id]
     else params[:document_id]
-      @ticket = Ticket.new(params[:ticket])
       @ticket.document_id = params[:document_id]
     end
 
@@ -64,6 +63,7 @@ class TicketsController < ApplicationController
           format.html { redirect_to @ticket.document }
         end
         format.xml  { render :xml => @ticket, :status => :created, :location => @ticket }
+        format.js 
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @ticket.errors, :status => :unprocessable_entity }
@@ -92,11 +92,11 @@ class TicketsController < ApplicationController
   # DELETE /tickets/1.xml
   def destroy
     @ticket = Ticket.find(params[:id])
+    @hardware = @ticket.hardware
     @ticket.destroy
-    redirect_to request.env["HTTP_REFERER"]
-    # respond_to do |format|
-      # format.html { redirect_to(tickets_url) }
-      # format.xml  { head :ok }
-    # end
+    respond_to do |format|
+      format.html { redirect_to(hardware_tickets_path(@hardware)) }
+      format.xml  { head :ok }
+    end
   end
 end

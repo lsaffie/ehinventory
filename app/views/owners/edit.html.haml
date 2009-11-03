@@ -1,7 +1,7 @@
 %h1
   Editing owner
 
--form_for(@owner) do |f| 
+-form_remote_for(@owner) do |f| 
   =f.error_messages 
 
   %p
@@ -15,5 +15,4 @@
   %p
     =f.submit "Update" 
   
-=link_to 'Show', @owner  |
-=link_to 'Back', owners_path 
+=link_to_remote 'Show', :url => @owner

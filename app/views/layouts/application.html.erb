@@ -5,6 +5,8 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title></title>
+  <%= javascript_include_tag 'prototype' %>
+  <%= javascript_include_tag :defaults %>
   <%= stylesheet_link_tag 'style' %>
 </head>
 <body>
@@ -13,12 +15,12 @@
 
 	
 <div id="header">
-  <%= link_to "Hardwares", "/hardwares" %> | 
-  <%= link_to "Softwares", "/softwares" %> | 
-  <%= link_to "Documents", "/documents" %> | 
-  <%= link_to "Groups", "/groups" %> | 
-  <%= link_to "Users", "/owners" %> |
-  <%= link_to "Hardware Types", "/hardware_types"%>
+  <%= link_to_remote "Hardwares", :url => hardwares_path, :method => :get %> | 
+  <%= link_to_remote "Softwares", :url => softwares_path, :method => :get %> | 
+  <%= link_to_remote "Documents", :url => documents_path, :method => :get %> | 
+  <%= link_to_remote "Groups", :url => groups_path, :method => :get %> | 
+  <%= link_to_remote "Users", :url => owners_path, :method => :get %> |
+  <%= link_to_remote "Hardware Types", :url => hardware_types_path, :method => :get %>
   
   <div id="loginlink">
     <% if logged_in? %>
@@ -28,10 +30,11 @@
      <% end %>
   </div>
 </div>
+<div id="busy" style="display: none;">
+  <img src='/images/loader.gif'>
+</div>
 <div id="container">
-	
 	<%= yield  %>  
-	
 </div>
 
 </body>

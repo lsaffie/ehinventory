@@ -1,0 +1,31 @@
+%p
+  %b
+    Title:
+  =h @document.title
+
+%p
+  %b
+    Body:
+    =textilize(@document.body)
+
+=link_to_remote 'Edit', :url => edit_document_path(@document), :update => 'container', :method => :get
+
+%h2
+  New ticket
+-form_remote_for :ticket, @ticket, :url => document_ticket_path(@document,@ticket), :html => {:id => 'tickets_form'} do |f|
+  %p
+    =f.label :title
+    %br
+    =f.text_field :title
+  %p
+    =f.label :body
+    %br
+    =f.text_area :body, :rows => 5
+
+  %p
+    =f.submit "Create"
+
+%h3
+  Current Tickets
+#current_tickets
+  =render :partial => 'tickets/ticket', :collection => @document.tickets

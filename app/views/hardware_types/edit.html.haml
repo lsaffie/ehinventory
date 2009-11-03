@@ -1,7 +1,7 @@
 %h1
   Editing hardware_type
 
--form_for(@hardware_type) do |f| 
+-form_remote_for(@hardware_type) do |f| 
   =f.error_messages 
 
   %p
@@ -11,5 +11,5 @@
   %p
     =f.submit "Update" 
   
-=link_to 'Show', @hardware_type  |
-=link_to 'Back', hardware_types_path 
+=link_to_remote 'Show', :url => @hardware_type, :method => :get, :update => 'container'  |
+=link_to_remote 'List', :url => hardware_types_path, :method => :get, :update => 'container' 

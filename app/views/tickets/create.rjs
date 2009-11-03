@@ -1,0 +1,2 @@
+page.insert_html :bottom, :current_tickets, :partial => 'ticket', :object => @ticket
+page[:tickets_form].reset

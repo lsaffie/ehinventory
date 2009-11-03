@@ -1,0 +1,63 @@
+%p
+  %b
+    Name:
+  =@software.name 
+
+%p
+  %b
+    Owner:
+  =h @software.owner 
+
+%p
+  %b
+  License key:
+  =h @software.license_key
+
+%p
+  %b
+    Number of licenses:
+  =h @software.number_of_licenses
+
+%p
+  %b
+  Description:
+  = textilize(@software.description)
+
+=link_to_remote 'Edit', :url => edit_software_path(@software), :update => 'container', :method => :get
+
+%p
+  %h2
+    Current assignment
+  %table
+    %thead
+      %th
+        Hardware ID
+      %th
+        Owner Name
+      %th
+        Action
+  %tbody
+    =render :partial => 'assignment', :collection => @software.assignments
+
+%h2
+  License Assignment
+-form_remote_for(@software) do |f|
+  =select("hardware","hardware_id", Hardware.find(:all, :order => "serial_number").collect {|p| [p.serial_number + '-' + p.owner.name, p.id]}, { :include_blank => true})
+  =f.submit "Add Licensee"
+
+%h2
+  New ticket
+-form_remote_for :ticket, @ticket, :url => software_ticket_path(@software,@ticket), :html => {:id => 'tickets_form'} do |f|
+  %p
+    =f.label :title
+    =f.text_field :title
+  %p
+    =f.label :body
+    =f.text_area :body, :rows => 5
+  %p
+    =f.submit "Create"
+
+%h3
+  Current Tickets
+#current_tickets
+  =render :partial => 'tickets/ticket', :collection => @software.tickets

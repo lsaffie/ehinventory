@@ -1,0 +1,19 @@
+%h1
+  Hardware Types
+
+%table{:class => 'index_table'}
+  %thead
+    %th
+      Name
+    %th
+      Actions
+
+  -for hardware_type in @hardware_types 
+    %tr{:class => cycle('even','odd'), :id => "hardware_type_#{hardware_type.id}"}
+      %td
+        =link_to_remote hardware_type.name, :url => hardware_type, :method => :get, :update => 'container'
+      %td
+        =link_to_remote 'Destroy', :url => hardware_type, :confirm => 'Are you sure?', :method => :delete 
+  
+%br
+=link_to_remote 'New hardware_type', :url => new_hardware_type_path, :method => :get, :update => 'container'

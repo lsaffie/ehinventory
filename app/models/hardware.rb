@@ -6,6 +6,7 @@ class Hardware < ActiveRecord::Base
   belongs_to :owner
   
   validates_presence_of :serial_number
+  validates_presence_of :owner_id
 
   
   def self.search(search,type)

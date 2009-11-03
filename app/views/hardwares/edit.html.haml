@@ -1,7 +1,7 @@
 %h1
   Editing hardware
 
--form_for(@hardware) do |f| 
+-remote_form_for(@hardware) do |f| 
   =f.error_messages 
 
   =f.label :hardware_type 
@@ -23,8 +23,12 @@
     =f.label :mac 
     =f.text_field :mac 
   %p
+    =f.label :owner
+    =select("owner","owner_id", Owner.find(:all, :order => "name").collect {|p| [p.name, p.id]}, { :include_blank => false, :selected => @hardware.owner.id}) 
+  %p
     =f.label :description 
     =f.text_area :description 
+
   %p
     =f.submit "Update" 
 

@@ -1,7 +1,7 @@
 %h1
   Editing software
 
--form_for(@software) do |f| 
+-form_remote_for(@software) do |f| 
   =f.error_messages 
 
   %p
@@ -26,7 +26,3 @@
   
   %p
     =f.submit "Update" 
-  
-
-=link_to 'Show', @software  |
-=link_to 'Back', softwares_path 

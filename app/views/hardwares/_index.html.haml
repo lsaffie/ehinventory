@@ -1,0 +1,35 @@
+-form_remote_tag :url => hardwares_path, :method => 'get' do 
+  %p
+    =text_field_tag :search, params[:search] 
+    =submit_tag "Search Hardwares", :name => nil 
+
+%h1
+  Hardwares
+
+%table{:class => 'index_table'}
+  %tr
+    %th
+      SN
+    %th
+      Type
+    %th
+      User
+    %th
+      Ip
+    %th
+      Action
+
+  -for hardware in @hardwares
+    %tr{:class => cycle('even','odd'), :id => "hardware_#{hardware.id}"}
+      %td
+        =link_to_remote  hardware.serial_number, :url => hardware_path(hardware.id), :update => 'container', :method => :get
+      %td
+        =h hardware.hardware_type.name
+      %td
+        =h hardware.owner.name if hardware.owner
+      %td
+        =h hardware.ip 
+      %td
+        =link_to_remote 'Destroy', :url => hardware_path(hardware), :confirm => 'Are you sure?', :method => :delete 
+
+= link_to_remote 'New hardware', :url => new_hardware_path, :update => 'container', :method => :get
