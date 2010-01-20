@@ -21,19 +21,19 @@
   -for port in @ports
     %tr{:class => cycle('even','odd')}
       %td
-        =link_to port.room.name, edit_port_path(port)
+        =link_to port.room.name, port
       %td
-        =link_to port.patch1, edit_port_path(port)
+        =link_to port.patch1, port
       %td
-        =port.patch2
+        =link_to port.patch2, port
       %td
-        =port.patch3
+        =link_to port.patch3, port
       %td
-        =port.patch4
+        =link_to port.patch4, port
       %td
-        =port.patch5
+        =link_to port.patch5, port
       %td
-        =port.patch6
+        =link_to port.patch6, port
       %td
         =link_to 'Delete', port_path(port), :method => 'delete'
 
