@@ -1,22 +1,22 @@
 %h3
   Index Port
 %table{:class => 'index_table'}
-  %tr
-    %td 
+  %thead
+    %th 
       Room
-    %td 
+    %th 
       Patch1
-    %td 
+    %th 
       Patch2
-    %td 
+    %th 
       Patch3
-    %td 
+    %th 
       Patch4
-    %td 
+    %th 
       Patch5
-    %td 
+    %th 
       Patch6
-    %td 
+    %th 
       Actions
   -for port in @ports
     %tr{:class => cycle('even','odd')}
