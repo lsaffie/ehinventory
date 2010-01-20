@@ -1,0 +1,43 @@
+%tr
+  %td
+    =f.label 'room'
+  %td
+    =select('port', 'room_id', @rooms.collect {|p| [p.name, p.id]})
+%tr
+  %td
+    =f.label :patch1
+  %td
+    =f.text_field :patch1
+%tr
+  %td
+    =f.label :patch2
+  %td
+    =f.text_field :patch2
+%tr
+  %td
+    =f.label :patch3
+  %td
+    =f.text_field :patch3
+%tr
+  %td
+    =f.label :patch4
+  %td
+    =f.text_field :patch4
+%tr
+  %td
+    =f.label :patch5
+  %td
+    =f.text_field :patch5
+%tr
+  %td
+    =f.label :patch6
+  %td
+    =f.text_field :patch6
+%tr
+  %td
+    =f.label :description
+  %td
+    =f.text_area :description, :rows => 5
+%tr
+  %td
+    =f.submit

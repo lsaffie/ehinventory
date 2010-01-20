@@ -1,0 +1,22 @@
+%h1
+  Listing rooms/cubicles
+
+%table
+  %tr
+    %th
+      Name
+    %th
+      Nickname
+
+  -for room in @rooms
+    %tr
+      %td
+        =link_to room.name, room
+      %td
+        =room.nickname
+      %td
+        =link_to 'Edit', edit_room_path(room)
+      %td
+        =link_to 'Destroy', room, :confirm => 'Are you sure?', :method => :delete
+
+=link_to 'New room', new_room_path

@@ -1,0 +1,41 @@
+%h3
+  Index Port
+%table{:class => 'table_with_border'}
+  %tr
+    %td 
+      Room
+    %td 
+      Patch1
+    %td 
+      Patch2
+    %td 
+      Patch3
+    %td 
+      Patch4
+    %td 
+      Patch5
+    %td 
+      Patch6
+    %td 
+      Actions
+  -for port in @ports
+    %tr
+      %td
+        =link_to port.room.name, edit_port_path(port)
+      %td
+        =link_to port.patch1, edit_port_path(port)
+      %td
+        =port.patch2
+      %td
+        =port.patch3
+      %td
+        =port.patch4
+      %td
+        =port.patch5
+      %td
+        =port.patch6
+      %td
+        =link_to 'Delete', port_path(port), :method => 'delete'
+
+%br
+=link_to 'New Port', new_port_path
