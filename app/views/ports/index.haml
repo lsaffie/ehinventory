@@ -1,6 +1,6 @@
 %h3
   Index Port
-%table{:class => 'table_with_border'}
+%table{:class => 'index_table'}
   %tr
     %td 
       Room
@@ -19,7 +19,7 @@
     %td 
       Actions
   -for port in @ports
-    %tr
+    %tr{:class => cycle('even','odd')}
       %td
         =link_to port.room.name, edit_port_path(port)
       %td
