@@ -1,7 +1,13 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :rooms
+
   map.resources :hardware_types
 
   map.resources :groups
+
+  map.resources :rooms
+
+  map.resources :ports
 
   map.resources :users
 

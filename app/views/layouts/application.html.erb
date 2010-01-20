@@ -20,7 +20,9 @@
   <%= link_to_remote "Documents", :url => documents_path, :method => :get %> | 
   <%= link_to_remote "Groups", :url => groups_path, :method => :get %> | 
   <%= link_to_remote "Users", :url => owners_path, :method => :get %> |
-  <%= link_to_remote "Hardware Types", :url => hardware_types_path, :method => :get %>
+  <%= link_to_remote "Hardware Types", :url => hardware_types_path, :method => :get %> |
+  <%= link_to "Ports", ports_path %> |
+  <%= link_to "Rooms", rooms_path %>
   
   <div id="loginlink">
     <% if logged_in? %>
