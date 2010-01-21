@@ -24,15 +24,19 @@ table.index_table th {
   background: #77919C;
 }
 
-a{ 
+.index_table a {
   color: #323232;
   text-decoration: none;
 }
 
-a:hover{
-  color: #1d1d1d;
+a{ 
+  color: #4B4E50;
+  text-decoration: underline;
 }
 
+a:hover {
+  color: #111;
+}
 
 #header {
   padding: 10px 20px;

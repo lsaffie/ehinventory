@@ -8,12 +8,10 @@
     Nickname:
   =h @room.nickname 
 
-%h1
+=link_to 'Edit', edit_room_path(@room) |
+
+%h3
   Ports
 -for port in @room.ports
   =link_to port.patch1, port_path(port)
   %br
-
-
-=link_to 'Edit', edit_room_path(@room) |
-=link_to 'Back', rooms_path 
