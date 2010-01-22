@@ -1,15 +1,17 @@
 %h1
   Listing rooms/cubicles
 
-%table
-  %tr
+%table{:class => 'index_table'}
+  %thead
     %th
       Name
     %th
       Nickname
+    %th
+      Action
 
   -for room in @rooms
-    %tr
+    %tr{:class => cycle('even','odd')}
       %td
         =link_to room.name, room
       %td
