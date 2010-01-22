@@ -3,26 +3,37 @@
 
 -form_remote_for(@software) do |f| 
   =f.error_messages 
-
-  %p
-    =f.label :name 
-    =f.text_field :name 
-  
-  %p
-    =f.label :owner 
-    =f.text_field :owner 
-  
-  %p
-    =f.label :license_key 
-    =f.text_field :license_key 
-  
-  %p
-    =f.label :number_of_licenses 
-    =f.text_field :number_of_licenses 
-  
-  %p
-    =f.label :description 
-    =f.text_area :description 
-  
-  %p
-    =f.submit "Create" 
+  %table
+    %tr
+      %td
+        =f.label :name 
+      %td
+        =f.text_field :name 
+    
+    %tr
+      %td
+        =f.label :owner 
+      %td
+        =f.text_field :owner 
+    
+    %tr
+      %td
+        =f.label :license_key 
+      %td
+        =f.text_field :license_key 
+    
+    %tr
+      %td
+        =f.label :number_of_licenses 
+      %td
+        =f.text_field :number_of_licenses 
+    
+    %tr
+      %td
+        =f.label :description 
+      %td
+        =f.text_area :description 
+    
+    %tr
+      %td
+        =f.submit "Create" 

@@ -3,16 +3,17 @@
 
 -form_remote_for(@document) do |f| 
   =f.error_messages 
-
-  %p
-    =f.label :title 
-    =f.text_field :title 
-  
-  %p
-    =f.label :body 
-    =f.text_area :body 
-  
-  %p
-    =f.submit "Create" 
-
-=link_to 'Back', documents_path 
+  %table
+    %tr
+      %td
+        =f.label :title 
+      %td
+        =f.text_field :title 
+    %tr
+      %td
+        =f.label :body 
+      %td
+        =f.text_area :body 
+    %tr
+      %td
+        =f.submit "Create" 
