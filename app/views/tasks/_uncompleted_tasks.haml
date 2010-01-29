@@ -1,0 +1,24 @@
+%table{:class => 'index_table'}
+  %tr
+    %th
+      Status
+    %th
+      Task name
+    %th
+      Creation date
+    %th
+      Actions
+
+  -for task in @uncompleted_tasks 
+    %tr
+      %td
+        =#check_box_tag 'task_ids[]', task.id
+        =check_box_tag 'task_ids[]', task.id, nil, :onclick => "UtilityFunctions.enableSubmit();"
+      %td
+        =link_to task.task_name, edit_task_path(task)
+      %td
+        =format_date(task.created_at)
+      %td
+        =link_to 'Destroy', task, :confirm => 'Are you sure?', :method => :delete
+%br
+=submit_tag 'Mark completed', :disabled => true
