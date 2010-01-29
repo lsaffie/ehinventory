@@ -1,61 +1,62 @@
-%p
-  %b
-    Name:
-  =@software.name 
-
-%p
-  %b
-    Owner:
-  =h @software.owner 
-
-%p
-  %b
-  License key:
-  =h @software.license_key
-
-%p
-  %b
-    Number of licenses:
-  =h @software.number_of_licenses
-
-%p
-  %b
-  Description:
-  = textilize(@software.description)
+%table
+  %tr
+    %td
+      %b
+        Name
+    %td
+      =@software.name 
+  %tr
+    %td
+      %b
+        Owner
+    %td
+      =@software.owner 
+  %tr
+    %td
+      %b
+        License key
+    %td
+      =h @software.license_key
+  %tr
+    %td
+      %b
+        Number of licenses:
+    %td
+      =@software.number_of_licenses
+  %tr
+    %td
+      %b
+        Description
+    %td
+      =textilize(@software.description)
 
 =link_to_remote 'Edit', :url => edit_software_path(@software), :update => 'container', :method => :get
 
-%p
-  %h2
-    Current assignment
-  %table
-    %thead
-      %th
-        Hardware ID
-      %th
-        Owner Name
-      %th
-        Action
-  %tbody
-    =render :partial => 'assignment', :collection => @software.assignments
+%h3
+  Current assignment
+  -unless @software.assignments.empty?
+    %table
+      %thead
+        %th
+          Hardware ID
+        %th
+          Owner Name
+        %th
+          Action
+    %tbody
+      =render :partial => 'assignment', :collection => @software.assignments
 
-%h2
+%h3
   License Assignment
 -form_remote_for(@software) do |f|
   =select("hardware","hardware_id", Hardware.find(:all, :order => "serial_number").collect {|p| [p.serial_number + '-' + p.owner.name, p.id]}, { :include_blank => true})
   =f.submit "Add Licensee"
 
-%h2
+%h3
   New ticket
 -form_remote_for :ticket, @ticket, :url => software_ticket_path(@software,@ticket), :html => {:id => 'tickets_form'} do |f|
-  %p
-    =f.label :title
-    =f.text_field :title
-  %p
-    =f.label :body
-    =f.text_area :body, :rows => 5
-  %p
-    =f.submit "Create"
+  =render :partial => 'tickets/new_ticket.haml', :locals => {:f => f}
+  =f.submit 'Create'
 
 %h3
   Current Tickets

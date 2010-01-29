@@ -1,20 +1,23 @@
 body { 
-background-color:#4B4E50; 
+background-color:#FFF;
 color: #333;
-padding: 20px 10%;
 font: 13px Helvetica;
 }
 
 table.index_table {
   border: 1px solid black;
   border-collapse: collapse;
-  width: 90%;
+  width: 100%;
 }
 table.index_table th {
   border-bottom: 1px solid black;
   background: #e0e0e0;
+  width: 1%;
 }
 
+.index_table td{
+  padding: 0 5px;
+}
 .index_table tr.odd {
   background: #DAE4E9;
 }
@@ -38,16 +41,13 @@ a:hover {
 }
 
 #header {
-  padding: 10px 20px;
-  background: #e0e0e0;
-  border: 1px solid #FFF;
-  border-bottom: none;
+  border-bottom: 1px solid #666;
 }
 
 #header a{ 
   text-decoration: none;
   color: #555555;
-  font: 12pt Helvetica;
+  font: 10pt Helvetica;
 }
 
 #header a:hover {
@@ -55,13 +55,12 @@ a:hover {
 }
 
 #container {
-border: 1px solid white;
-padding: 20px;
-background: #fdfdfd;
+  padding: 25px 8%;
 }
 
 #loginlink {
 	float: right;
+  font: 10pt Helvetica;
 }
 
 #busy {
@@ -69,3 +68,11 @@ background: #fdfdfd;
   top: 50%;
   left: 50%;
 } 
+
+input#search {
+  width: 300px;
+}
+
+textarea#document_body {
+  width: 500px;
+}

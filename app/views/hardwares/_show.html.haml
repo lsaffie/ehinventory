@@ -58,17 +58,11 @@
 =link_to 'Back', hardwares_path 
 
 
-%h2
+%h3
   New ticket
 -form_remote_for :ticket, @ticket, :url => hardware_ticket_path(@hardware,@ticket), :html => {:id => 'tickets_form'} do |f| 
-  %p
-    =f.label :title
-    =f.text_field :title 
-  %p
-    =f.label :body
-    =f.text_area :body, :rows => 5 
-  %p
-    =f.submit "Create" 
+  =render :partial => 'tickets/new_ticket.haml', :locals => {:f => f}
+  =f.submit "Create" 
 
 %h3
   Current Tickets

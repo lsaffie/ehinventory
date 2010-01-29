@@ -9,11 +9,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090331142841) do
+ActiveRecord::Schema.define(:version => 20100123004422) do
 
   create_table "assignments", :force => true do |t|
-    t.integer  "hardware_id"
-    t.integer  "software_id"
+    t.integer  "hardware_id", :limit => 11
+    t.integer  "software_id", :limit => 11
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(:version => 20090331142841) do
     t.datetime "updated_at"
     t.string   "file_file_name"
     t.string   "file_content_type"
-    t.integer  "file_file_size"
+    t.integer  "file_file_size",    :limit => 11
   end
 
   create_table "groups", :force => true do |t|
@@ -45,10 +45,10 @@ ActiveRecord::Schema.define(:version => 20090331142841) do
     t.string   "ip"
     t.string   "mac"
     t.text     "description"
-    t.integer  "owner_id"
+    t.integer  "owner_id",         :limit => 11
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "hardware_type_id"
+    t.integer  "hardware_type_id", :limit => 11
     t.string   "brand"
     t.string   "model"
   end
@@ -56,7 +56,27 @@ ActiveRecord::Schema.define(:version => 20090331142841) do
   create_table "owners", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
-    t.integer  "group_id"
+    t.integer  "group_id",   :limit => 11
+    t.datetime "updated_at"
+  end
+
+  create_table "ports", :force => true do |t|
+    t.string   "patch1"
+    t.string   "patch2"
+    t.string   "patch3"
+    t.string   "patch4"
+    t.string   "patch5"
+    t.string   "patch6"
+    t.text     "description"
+    t.integer  "room_id",     :limit => 11
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rooms", :force => true do |t|
+    t.string   "name"
+    t.string   "nickname"
+    t.datetime "created_at"
     t.datetime "updated_at"
   end
 
@@ -70,12 +90,19 @@ ActiveRecord::Schema.define(:version => 20090331142841) do
     t.datetime "updated_at"
   end
 
+  create_table "tasks", :force => true do |t|
+    t.string   "task_name"
+    t.boolean  "completed",  :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "tickets", :force => true do |t|
     t.string   "title"
     t.text     "body"
-    t.integer  "hardware_id"
-    t.integer  "software_id"
-    t.integer  "document_id"
+    t.integer  "hardware_id", :limit => 11
+    t.integer  "software_id", :limit => 11
+    t.integer  "document_id", :limit => 11
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :tasks, :collection => { :mark_completed => :post }
+
   map.resources :rooms
 
   map.resources :hardware_types
