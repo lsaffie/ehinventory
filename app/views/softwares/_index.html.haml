@@ -1,7 +1,5 @@
--form_remote_tag :url => softwares_path, :method => 'get' do 
-  %p
-    =text_field_tag :search, params[:search] 
-    =submit_tag "Search", :name => nil 
+%input{ :id => "live-search", :name => "search", :type => "text" }
+  =observe_field('live-search', :frequency => 2, :url => softwares_path, :method => :get, :with => "search")
 %h1
   Softwares
 
@@ -18,7 +16,7 @@
     -for software in @softwares 
       %tr{:class => cycle('even','odd'), :id => "software_#{software.id}"}
         %td
-          =link_to_remote software.name, :url => software_path(software), :update => 'container', :method => :get
+          =link_to software.name, software
         %td
           =h software.owner 
         %td

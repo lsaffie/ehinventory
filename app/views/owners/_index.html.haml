@@ -14,9 +14,9 @@
   -for owner in @owners 
     %tr{:class => cycle('even','odd'), :id => "owner_#{owner.id}"}
       %td
-        =link_to_remote owner.name, :url => owner, :method => :get, :update => 'container'
+        =link_to owner.name, owner
       %td
-        =link_to_remote owner.group.name, :url => owner.group, :method => :get, :update => 'container'
+        =link_to owner.group.name, owner.group
       %td
         =link_to_remote 'Destroy', :url => owner, :confirm => 'Are you sure?', :method => :delete 
   

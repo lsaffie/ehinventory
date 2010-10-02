@@ -5,9 +5,9 @@ font: 13px Helvetica;
 }
 
 table.index_table {
-  border: 1px solid black;
+  border: 1px solid gray;
   border-collapse: collapse;
-  width: 100%;
+  width: 500px;
 }
 table.index_table th {
   border-bottom: 1px solid black;
@@ -75,4 +75,11 @@ input#search {
 
 textarea#document_body {
   width: 500px;
+}
+pre {
+  background-color: #FAFAFA;
+  border: 1px solid #DADADA;
+  padding: 5px;
+  color: #333;
+  font: 13px Helvetica;
 }

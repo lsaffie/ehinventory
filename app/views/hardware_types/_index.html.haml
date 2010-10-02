@@ -11,7 +11,7 @@
   -for hardware_type in @hardware_types 
     %tr{:class => cycle('even','odd'), :id => "hardware_type_#{hardware_type.id}"}
       %td
-        =link_to_remote hardware_type.name, :url => hardware_type, :method => :get, :update => 'container'
+        =link_to hardware_type.name, hardware_type
       %td
         =link_to_remote 'Destroy', :url => hardware_type, :confirm => 'Are you sure?', :method => :delete 
   

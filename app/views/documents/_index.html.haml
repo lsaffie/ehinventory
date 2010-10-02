@@ -1,17 +1,13 @@
--form_remote_tag :url => documents_path, :method => 'get' do
-  %p
-    =text_field_tag :search, params[:search]
-    =submit_tag "Search", :name => nil
- 
+%input{ :id => "live-search", :name => "search", :type => "text" }
+  =observe_field('live-search', :frequency => 2, :url => documents_path, :method => :get, :with => "search")
+
 %h1
   Documents
- 
+
 %table{:class => 'index_table'}
   %thead
     %th
       Title
-    %th
-      Creation Date
     %th
       Actions
              
@@ -19,9 +15,7 @@
     -for document in @documents
       %tr{:class => cycle('even','odd'), :id => "document_#{document.id}"}
         %td
-          =link_to_remote document.title, :url => document, :update => 'container', :method => :get
-        %td
-          =document.created_at.strftime("%m/%d/%Y")
+          =link_to document.title, document 
         %td
           =link_to_remote 'Destroy', :url => document, :confirm => 'Are you sure?', :method => :delete
                            

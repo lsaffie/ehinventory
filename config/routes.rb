@@ -19,6 +19,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :tickets 
 
+  map.resources :documents, :collection => {:live_search => :get}
   map.resources :documents, :has_many => :tickets
   
   map.resources :hardwares, :has_many => :tickets
@@ -31,7 +32,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.login '/login', :controller => 'sessions', :action => 'new'
   
-  map.root :controller => "hardwares"
+  map.root :controller => "documents"
 
   
 

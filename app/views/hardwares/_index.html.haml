@@ -1,7 +1,5 @@
--form_remote_tag :url => hardwares_path, :method => 'get' do 
-  %p
-    =text_field_tag :search, params[:search] 
-    =submit_tag "Search", :name => nil 
+%input{ :id => "live-search", :name => "search", :type => "text" }
+  =observe_field('live-search', :frequency => 2, :url => hardwares_path, :method => :get, :with => "search")
 
 %h1
   Hardwares
@@ -15,20 +13,16 @@
     %th
       User
     %th
-      Ip
-    %th
       Action
 
   -for hardware in @hardwares
     %tr{:class => cycle('even','odd'), :id => "hardware_#{hardware.id}"}
       %td
-        =link_to_remote  hardware.serial_number, :url => hardware_path(hardware.id), :update => 'container', :method => :get
+        =link_to hardware.serial_number, hardware_path(hardware.id)
       %td
         =h hardware.hardware_type.name
       %td
         =h hardware.owner.name if hardware.owner
-      %td
-        =h hardware.ip 
       %td
         =link_to_remote 'Destroy', :url => hardware_path(hardware), :confirm => 'Are you sure?', :method => :delete 
 

@@ -11,7 +11,7 @@
   -for group in @groups 
     %tr{ :class => cycle('even','odd'), :id => "group_#{group.id}"}
       %td
-        =link_to_remote group.name, :url => group, :method => :get, :update => 'container'
+        =link_to group.name, group
       %td
         =link_to_remote 'Destroy', :url => group, :confirm => 'Are you sure?', :method => :delete 
 
