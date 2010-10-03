@@ -16,14 +16,14 @@ table.index_table th {
 }
 
 .index_table td{
-  padding: 0 5px;
+  padding: 5px;
 }
-.index_table tr.odd {
-  background: #DAE4E9;
+.index_table tr{
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .index_table tr:hover {
-  background: #77919C;
+  color: #111111;
 }
 
 .index_table a {
