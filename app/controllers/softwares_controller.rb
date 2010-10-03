@@ -4,7 +4,8 @@ class SoftwaresController < ApplicationController
   # GET /softwares
   # GET /softwares.xml
   def index
-    @softwares = Software.search(params[:search])
+    @search = params[:search]
+    @softwares = Software.search(@search)
 
     respond_to do |format|
       format.html # index.html.erb

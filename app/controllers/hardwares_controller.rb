@@ -4,7 +4,8 @@ class HardwaresController < ApplicationController
   # GET /hardwares
   # GET /hardwares.xml
   def index
-    @hardwares = Hardware.search(params[:search], params[:hardware_type])
+    @search = params[:search]
+    @hardwares = Hardware.search(@search, params[:hardware_type])
 
     respond_to do |format|
       format.html # index.html.erb
