@@ -7,14 +7,3 @@
   =textilize(@document.body)
 
 =link_to_remote 'Edit', :url => edit_document_path(@document), :update => 'container', :method => :get
-
-%h3
-  New ticket
--form_remote_for :ticket, @ticket, :url => document_ticket_path(@document,@ticket), :html => {:id => 'tickets_form'} do |f|
-  =render :partial => 'tickets/new_ticket.haml', :locals => {:f => f}
-  =f.submit "Create"
-
-%h3
-  Current Tickets
-#current_tickets
-  =render :partial => 'tickets/ticket', :collection => @document.tickets

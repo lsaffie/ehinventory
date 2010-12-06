@@ -3,6 +3,7 @@
 %h1
   Hardwares
 
+= link_to_remote 'New hardware', :url => new_hardware_path, :update => 'container', :method => :get
 %table{:class => 'index_table'}
   %tr
     %th

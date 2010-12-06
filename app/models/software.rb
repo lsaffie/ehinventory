@@ -9,7 +9,7 @@ class Software < ActiveRecord::Base
   def self.search(search)
     if search
       find(:all, :conditions => ['name LIKE ?', "%#{search}%"], 
-           :order => "owner, name")
+           :order => "updated_at DESC")
     else
       find(:all, :order => "owner, name")
     end

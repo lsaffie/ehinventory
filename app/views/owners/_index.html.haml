@@ -1,6 +1,7 @@
 %h1
   Users
 
+=link_to_remote 'New owner', :url => new_owner_path, :method => :get, :update => 'container'
 %table{:class => 'index_table'}
   %tr
     %th

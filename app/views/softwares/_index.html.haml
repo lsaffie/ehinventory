@@ -3,12 +3,15 @@
 %h1
   Softwares
 
+=link_to_remote 'New software', :url => new_software_path, :update => 'container', :method => :get
 %table{:class => 'index_table'}
   %thead
     %th
       Name
     %th
       Owner
+    %th
+      Last Modified
     %th
       Actions
 
@@ -19,6 +22,8 @@
           =link_to software.name, software
         %td
           =h software.owner 
+        %td
+          =h software.updated_at.strftime("%Y/%m/%d")
         %td
           =link_to_remote 'Destroy', :url => software_path(software), :confirm => 'Are you sure?', :method => :delete 
 
