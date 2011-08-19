@@ -1,12 +1,8 @@
 %h1
   New hardware_type
 
--form_remote_for(@hardware_type) do |f| 
-  =f.error_messages 
+=render 'form'
 
-  %p
-    =f.label :name 
-    =f.text_field :name 
-  
-  %p
-    =f.submit "Create" 
+%p
+  =link_to 'Show', @hardware_type
+  =link_to 'List', hardware_types_path

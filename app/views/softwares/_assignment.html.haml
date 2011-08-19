@@ -1,7 +1,0 @@
-%tr{:id => "assignment_#{assignment.id}"}
-  %td
-    =link_to assignment.hardware.serial_number, assignment.hardware
-  %td
-    =print_owner(assignment)
-  %td
-    =link_to_remote 'Remove', :url => assignment_path(assignment), :confirm => 'Are you sure?', :method => :delete

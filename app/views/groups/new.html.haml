@@ -1,14 +1,7 @@
 %h1
   New group
 
--form_remote_for(@group) do |f| 
-  =f.error_messages 
+=render 'form'
 
-  %p
-    =f.label :name 
-    =f.text_field :name 
-  
-  %p
-    =f.submit "Create" 
-  
-=link_to_remote 'Back', :url => groups_path, :method => :get, :update => 'container'
+%p
+  =link_to 'Back', groups_path

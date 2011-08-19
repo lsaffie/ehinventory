@@ -1,4 +1,8 @@
-=link_to_remote ticket.title, :url => print_ticket_title(ticket), :update => 'container', :method => :get
-=ticket.created_at.to_s(:short)
--print_destroy_ticket_link(ticket)
-%br
+%table
+  %tr
+    %td
+      =link_to ticket.title, print_ticket_title(ticket)
+    %td
+      =ticket.created_at.to_s(:short)
+    %td
+      -print_destroy_ticket_link(ticket)

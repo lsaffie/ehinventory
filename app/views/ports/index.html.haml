@@ -1,0 +1,45 @@
+%h3
+  Index Port
+
+%p
+  =link_to 'New Port', new_port_path
+
+%table{:class => 'index_table'}
+  %thead
+    %th 
+      Room
+    %th 
+      Patch1
+    %th 
+      Patch2
+    %th 
+      Patch3
+    %th 
+      Patch4
+    %th 
+      Patch5
+    %th 
+      Patch6
+    %th 
+      Actions
+  -for port in @ports
+    %tr{:class => cycle('even','odd')}
+      %td
+        =link_to port.room.name, port
+      %td
+        =link_to port.patch1, port
+      %td
+        =link_to port.patch2, port
+      %td
+        =link_to port.patch3, port
+      %td
+        =link_to port.patch4, port
+      %td
+        =link_to port.patch5, port
+      %td
+        =link_to port.patch6, port
+      %td
+        =link_to 'Delete', port_path(port), :method => 'delete'
+
+%p
+  =link_to 'New Port', new_port_path

@@ -2,8 +2,8 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.xml
   def index
-    @uncompleted_tasks = Task.find(:all, :conditions => ['completed = ?', 0])
-    @completed_tasks = Task.find(:all, :conditions => ['completed = ?', 1])
+    @uncompleted_tasks = Task.where :completed => false
+    @completed_tasks = Task.where :completed => true
 
     respond_to do |format|
       format.html # index.html.erb
@@ -34,6 +34,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
+        @task.notify_assignee
         flash[:notice] = 'Task was successfully created.'
         format.html { redirect_to(tasks_path) }
         format.xml  { render :xml => @task, :status => :created, :location => @task }
@@ -51,6 +52,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.update_attributes(params[:task])
+        @task.notify_assignee
         flash[:notice] = 'Task was successfully updated.'
         format.html { redirect_to(@task) }
         format.xml  { head :ok }
@@ -73,6 +75,15 @@ class TasksController < ApplicationController
     end
   end
 
+  def show
+    @task = Task.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @task}
+    end
+  end
+
   def mark_completed
     params[:task_ids].each do |task_id|
       task = Task.find(task_id)
@@ -80,4 +91,5 @@ class TasksController < ApplicationController
     end
     redirect_to tasks_path
   end
+
 end

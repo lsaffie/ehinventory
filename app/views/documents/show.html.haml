@@ -1,1 +1,19 @@
-=render :partial => 'show'
+%h1
+  Documents
+
+.textarea
+  #title
+    =@document.title
+  Created:
+  =@document.created_at.strftime("%m/%d/%Y")
+  %hr
+  =raw RedCloth.new(@document.body).to_html
+
+  -if @document.file_file_name
+    .file
+      Attachments:
+      =link_to @document.file_file_name, @document.file.url
+
+%p
+  =link_to 'Edit', edit_document_path(@document)
+  =button_to 'Delete', @document, :method => :delete

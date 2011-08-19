@@ -1,17 +1,4 @@
 %h1
   New owner
 
--form_remote_for(@owner) do |f| 
-  =f.error_messages 
-  %table
-    %tr
-      %td
-        =f.label :name 
-        =f.text_field :name 
-    %tr
-      %td
-        =f.label :group
-        =select("group","group_id", Group.find(:all).collect {|p| [p.name, p.id]}, { :include_blank => true}) 
-    %tr
-      %td
-        =f.submit "Create" 
+=render 'form'

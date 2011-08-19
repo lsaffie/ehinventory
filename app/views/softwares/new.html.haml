@@ -1,39 +1,4 @@
 %h1
   New software
 
--form_remote_for(@software) do |f| 
-  =f.error_messages 
-  %table
-    %tr
-      %td
-        =f.label :name 
-      %td
-        =f.text_field :name 
-    
-    %tr
-      %td
-        =f.label :owner 
-      %td
-        =f.text_field :owner 
-    
-    %tr
-      %td
-        =f.label :license_key 
-      %td
-        =f.text_field :license_key 
-    
-    %tr
-      %td
-        =f.label :number_of_licenses 
-      %td
-        =f.text_field :number_of_licenses 
-    
-    %tr
-      %td
-        =f.label :description 
-      %td
-        =f.text_area :description 
-    
-    %tr
-      %td
-        =f.submit "Create" 
+=render 'form'

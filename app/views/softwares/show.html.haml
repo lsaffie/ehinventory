@@ -1,1 +1,43 @@
-=render :partial => 'show'
+#title
+  =@software.name 
+ 
+%table.show
+  %tr
+    %td
+      %b
+        Owner
+    %td
+      =@software.owner 
+  %tr
+    %td
+      %b
+        License key
+    %td
+      =h @software.license_key
+  %tr
+    %td
+      %b
+        Number of licenses:
+    %td
+      =@software.number_of_licenses
+  %tr
+    %td
+      %b
+        Description
+    %td
+      =textilize(@software.description)
+
+=link_to 'Edit', edit_software_path(@software)
+
+%hr
+%h3
+  New ticket
+=form_for [@software, @ticket], new_hardware_ticket_path(@software, @ticket) do |f|
+  =render :partial => 'tickets/new_ticket.haml', :locals => {:f => f}
+  =f.submit "Create" 
+
+%hr
+%h3
+  Current Tickets
+#current_tickets
+  =render :partial => 'tickets/ticket', :collection => @software.tickets

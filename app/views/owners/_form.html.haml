@@ -1,0 +1,10 @@
+%table
+  =form_for(@owner) do |f| 
+    %tr
+      %td Name 
+      %td=f.text_field :name 
+    %tr
+      %td Group
+      %td=select("group","group_id", Group.find(:all).collect {|p| [p.name, p.id]}, { :selected => @owner.group_id}) 
+    %tr
+      %td=f.submit "Update" 

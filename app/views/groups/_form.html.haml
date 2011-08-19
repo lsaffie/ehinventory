@@ -1,0 +1,7 @@
+%table
+  -form_for(@group) do |f| 
+    %tr
+      %td=f.label :name 
+      %td=f.text_field :name 
+    %tr
+      %td=f.submit "Update" 

@@ -1,5 +1,4 @@
 class AssignmentsController < ApplicationController
-  before_filter :login_required
   def destroy
     @assignment = Assignment.find(params[:id])
     @hardware = @assignment.hardware

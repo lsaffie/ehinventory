@@ -1,0 +1,16 @@
+%table
+  =form_for @task do |f|
+    %tr
+      %td task_name
+      %td=f.text_field :task_name
+    %tr
+      %td Assignee:
+      %td= f.collection_select :user_id, User.all, :id, :email
+    %tr
+      %td description:
+      %td=f.text_area :description
+    %tr
+      %td Completed?
+      %td=f.check_box :completed
+    %tr
+      %td=f.submit "Update"

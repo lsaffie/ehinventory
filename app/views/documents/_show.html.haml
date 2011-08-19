@@ -1,9 +1,0 @@
-%h3
-  =@document.title
-
-%p
-  =@document.created_at.strftime("%m/%d/%Y")
-%p
-  =textilize(@document.body)
-
-=link_to_remote 'Edit', :url => edit_document_path(@document), :update => 'container', :method => :get

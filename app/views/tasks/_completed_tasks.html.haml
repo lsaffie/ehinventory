@@ -1,0 +1,15 @@
+%hr
+%h3
+  Completed tasks
+%table.index_table
+  %tr
+    %th Task name
+    %th Completion date
+    %th Assignee
+    %th Actions
+  -for task in @completed_tasks 
+    %tr
+      %td=link_to task.task_name, task
+      %td=format_date(task.updated_at)
+      %td=task.user.email
+      %td=button_to 'Destroy', task, :method => :delete

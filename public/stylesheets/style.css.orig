@@ -1,0 +1,86 @@
+body { 
+background-color:#FFF;
+color: #333;
+font: 13px Helvetica;
+}
+
+table.index_table {
+  border: 1px solid gray;
+  border-collapse: collapse;
+  width: 700px;
+}
+table.index_table th {
+  border-bottom: 1px solid black;
+  background: #e0e0e0;
+  width: 1%;
+  text-align: left;
+}
+
+.index_table td{
+  padding: 5px;
+}
+.index_table tr{
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.index_table tr:hover {
+  color: #111111;
+}
+
+.index_table a {
+  color: #323232;
+  text-decoration: none;
+}
+
+a{ 
+  color: #4B4E50;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #111;
+}
+
+#header {
+  border-bottom: 1px solid #666;
+}
+
+#header a{ 
+  text-decoration: none;
+  color: #555555;
+  font: 10pt Helvetica;
+}
+
+#header a:hover {
+  color: #2F3233;
+}
+
+#container {
+  padding: 25px 8%;
+}
+
+#loginlink {
+	float: right;
+  font: 10pt Helvetica;
+}
+
+#busy {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+} 
+
+input#search {
+  width: 300px;
+}
+
+textarea#document_body {
+  width: 500px;
+}
+pre {
+  background-color: #FAFAFA;
+  border: 1px solid #DADADA;
+  padding: 5px;
+  color: #333;
+  font: 13px Helvetica;
+}

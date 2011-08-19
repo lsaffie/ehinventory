@@ -1,12 +1,4 @@
 %h1
   Editing group
 
--form_remote_for(@group) do |f| 
-  =f.error_messages 
-
-  %p
-    =f.label :name 
-    =f.text_field :name 
-  
-  %p
-    =f.submit "Update" 
+=render 'form'

@@ -1,0 +1,7 @@
+%table
+-form_for(@hardware_type) do |f| 
+  %tr
+    %td=f.label :name 
+    %td=f.text_field :name 
+  %tr
+    %td=f.submit "Update" 

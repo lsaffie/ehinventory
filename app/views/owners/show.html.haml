@@ -1,1 +1,19 @@
-=render :partial => 'show'
+%table
+  %tr
+    %td
+      Name:
+    %td
+      =@owner.name 
+  %tr
+    %td
+      Group:
+    %td
+      =h @owner.group.name 
+  %tr
+    %td
+      Created at:
+    %td
+      =h @owner.created_at 
+
+%p
+  =link_to 'Edit', edit_owner_path(@owner)

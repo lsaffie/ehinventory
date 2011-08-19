@@ -1,0 +1,28 @@
+%table
+  =form_for @port do |f|
+    %tr
+      %td Room
+      %td=select('port', 'room_id', @rooms.collect {|p| [p.name, p.id]})
+    %tr
+      %td patch1
+      %td=f.text_field :patch1
+    %tr
+      %td patch2
+      %td=f.text_field :patch2
+    %tr
+      %td patch3
+      %td=f.text_field :patch3
+    %tr
+      %td patch4
+      %td=f.text_field :patch4
+    %tr
+      %td patch5
+      %td=f.text_field :patch5
+    %tr
+      %td patch6
+      %td=f.text_field :patch6
+    %tr
+      %td description
+      %td=f.text_area :description, :rows => 5
+    %tr
+      %td=f.submit

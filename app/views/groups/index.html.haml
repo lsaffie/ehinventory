@@ -1,1 +1,22 @@
-=render :partial => 'index'
+%h1
+  Groups
+
+%p
+  =link_to 'New group', new_group_path
+
+%table.index_table
+  %thead
+    %th
+      Name
+    %th{ :html => colspan="3" }
+      Actions
+
+  -for group in @groups 
+    %tr{ :class => cycle('even','odd'), :id => "group_#{group.id}"}
+      %td
+        =link_to group.name, group
+      %td
+        =button_to 'Destroy', group, :method => :delete 
+
+%p
+  =link_to 'New group', new_group_path

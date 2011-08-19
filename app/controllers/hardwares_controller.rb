@@ -1,6 +1,4 @@
 class HardwaresController < ApplicationController
-  before_filter :login_required
-
   # GET /hardwares
   # GET /hardwares.xml
   def index
@@ -19,6 +17,7 @@ class HardwaresController < ApplicationController
   def show
     @hardware = Hardware.find(params[:id])
     @owners = Owner.find(:all)
+    @ticket = Ticket.new
 
     respond_to do |format|
       format.html # show.html.erb
@@ -50,7 +49,7 @@ class HardwaresController < ApplicationController
     @hardware = Hardware.new(params[:hardware])
     @hardware.hardware_type = HardwareType.find(params[:hardware_type]["hardware_type_id"])
     @hardware.owner_id = params[:owner]['owner_id']
-
+    
     respond_to do |format|
       if @hardware.save
         flash[:notice] = 'Hardware was successfully created.'

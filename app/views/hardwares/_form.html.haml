@@ -1,0 +1,28 @@
+%table
+  =form_for @hardware, :remote => true do |f| 
+    %tr
+      %td Hardware Type
+      %td=select("hardware_type","hardware_type_id", HardwareType.find(:all).collect {|p| [p.name, p.id]}, { :include_blank => true}) 
+    %tr
+      %td serial_number 
+      %td=f.text_field :serial_number 
+    %tr
+      %td brand 
+      %td=f.text_field :brand 
+    %tr
+      %td model 
+      %td=f.text_field :model 
+    %tr
+      %td ip 
+      %td=f.text_field :ip 
+    %tr
+      %td mac 
+      %td=f.text_field :mac 
+    %tr
+      %td Owner
+      %td=select("owner","owner_id", Owner.find(:all, :order => "name").collect {|p| [p.name, p.id]}, { :include_blank => true }) 
+    %tr
+      %td Description 
+      %td=f.text_area :description 
+    %tr
+      %td=f.submit "Create" 

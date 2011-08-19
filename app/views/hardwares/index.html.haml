@@ -1,1 +1,32 @@
-=render :partial => 'index'
+%h1
+  Hardware
+
+=search_form("hardwares")
+
+%p
+  =link_to 'New hardware', new_hardware_path
+
+%table.index_table
+  %tr
+    %th
+      SN
+    %th
+      Type
+    %th
+      User
+    %th
+      Action
+
+  -for hardware in @hardwares
+    %tr{:class => cycle('even','odd'), :id => "hardware_#{hardware.id}"}
+      %td
+        =link_to hardware.serial_number, hardware
+      %td
+        =#hardware.hardware_type.name
+      %td
+        =hardware.owner.name if hardware.owner
+      %td
+        =button_to 'Destroy', hardware, :method => :delete 
+
+%p
+  = link_to 'New hardware', new_hardware_path

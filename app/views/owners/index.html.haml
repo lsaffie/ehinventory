@@ -1,1 +1,27 @@
-=render :partial => 'index'
+%h1
+  Users
+
+%p
+  =link_to 'New owner', new_owner_path
+
+%table.index_table
+  %tr
+    %th
+      Name
+    %th
+      Group
+    %th
+      Actions
+  
+
+  -for owner in @owners 
+    %tr{:class => cycle('even','odd'), :id => "owner_#{owner.id}"}
+      %td
+        =link_to owner.name, owner
+      %td
+        =#link_to owner.group.name, owner.group
+      %td
+        =button_to 'Destroy', owner, :method => :delete 
+  
+%p
+  =link_to 'New owner', new_owner_path

@@ -1,0 +1,18 @@
+%table.index_table
+  %thead
+    %th
+      Email
+    %th
+      Other Attribute
+    %th
+      Action
+  %tr
+    -@users.each do |user|
+      %td
+        =user.email
+      %td
+        =user.email
+      %td
+        =button_to 'Delete', user, :method => :delete
+
+=link_to 'New', new_user_session_path

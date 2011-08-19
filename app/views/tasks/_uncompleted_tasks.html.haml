@@ -1,0 +1,15 @@
+%table.index_table
+  %tr
+    %th Task name
+    %th Creation date
+    %th Assignee
+    %th Actions
+
+  -for task in @uncompleted_tasks 
+    %tr
+      %td=link_to task.task_name, task
+      %td=format_date(task.created_at)
+      %td=task.user.email
+      %td=button_to 'Destroy', task, :method => :delete
+    %tr
+      %td=submit_tag 'Mark completed'

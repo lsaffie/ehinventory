@@ -1,1 +1,7 @@
-=render :partial => 'show'
+%p
+  %b
+    Name:
+  =@group.name 
+
+%p
+  =link_to 'Edit', edit_group_path(@group)

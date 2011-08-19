@@ -1,19 +1,4 @@
 %h1
   New document
 
--form_remote_for(@document) do |f| 
-  =f.error_messages 
-  %table
-    %tr
-      %td
-        =f.label :title 
-      %td
-        =f.text_field :title 
-    %tr
-      %td
-        =f.label :body 
-      %td
-        =f.text_area :body
-    %tr
-      %td
-        =f.submit "Create" 
+= render 'form'

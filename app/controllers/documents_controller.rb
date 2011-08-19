@@ -1,5 +1,4 @@
 class DocumentsController < ApplicationController
-  before_filter :login_required
   # GET /documents
   # GET /documents.xml
   def index
@@ -7,7 +6,7 @@ class DocumentsController < ApplicationController
     @documents = Document.search(@search, params[:page])
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html #index.html.haml
       format.xml  { render :xml => @documents }
       format.js { render :layout => false }
     end

@@ -1,0 +1,15 @@
+Task name:
+=@task.task_name
+%br
+Assignee:
+=@task.user.email
+%br
+Completed?:
+=@task.completed
+%br
+Description:
+.textarea
+  =raw RedCloth.new(@task.description).to_html
+
+=link_to 'Edit', edit_task_path(@task)
+=link_to 'Back', tasks_path

@@ -1,0 +1,23 @@
+%ul
+  %li
+    =link_to "Hardware", hardwares_path
+  %li
+    =link_to "Software", softwares_path
+  %li
+    =link_to "Documents", documents_path
+  %li
+    =link_to "Ports", ports_path
+  %li
+    =link_to "Groups", groups_path
+  %li
+    =link_to "Users", owners_path
+  %li
+    =link_to "Hardware Types", hardware_types_path
+  %li
+    =link_to "Rooms", rooms_path
+  %li
+    =link_to "Todo", tasks_path
+
+.logout_link
+  =button_to "Log Out", destroy_user_session_path, :method => :delete
+.clear

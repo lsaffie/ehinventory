@@ -1,18 +1,7 @@
 %h1
   Editing owner
 
--form_remote_for(@owner) do |f| 
-  =f.error_messages 
+=render 'form'
 
-  %p
-    =f.label :name 
-    =f.text_field :name 
-  
-  %p
-    =select("group","group_id", Group.find(:all).collect {|p| [p.name, p.id]}, { :selected => @owner.group_id}) 
-  
-
-  %p
-    =f.submit "Update" 
-  
-=link_to_remote 'Show', :url => @owner
+%p
+  =link_to 'Show', @owner

@@ -1,4 +1,3 @@
-# Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
   def print_ticket_title(ticket)
     if @controller.class == SoftwaresController
@@ -12,12 +11,11 @@ module ApplicationHelper
   end
 
   def print_destroy_ticket_link(ticket)
-    haml_concat(link_to_remote 'Destroy', :url => ticket_path(ticket), :confirm => 'Are you sure?', :method => :delete)
+    haml_concat(link_to 'Destroy', ticket_path(ticket))
   end
 
-  def print_search_form
-    url = "#{params[:controller]}_path"
-    haml_tag(:input, :id => "live-search", :name => "search", :type => "text" , :value => @search, :size => "95")
-    haml_concat(observe_field 'live-search', :frequency => 2, :url => eval(url), :method => :get, :with => 'search')
+  def search_form(resource)
+    render 'shared/search', :path => '/'+resource
   end
+
 end

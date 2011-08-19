@@ -1,18 +1,4 @@
 %h1
   Editing document
 
--form_remote_for(@document) do |f| 
-  =f.error_messages 
-
-  %p
-    =f.label :title 
-    =f.text_field :title 
-  
-  %p
-    =f.label :body 
-    =f.text_area :body 
-  
-  %p
-    -#=f.file_field :file 
-  %p
-    =f.submit "Update" 
+=render 'form'

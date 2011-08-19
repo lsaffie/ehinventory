@@ -1,1 +1,29 @@
-=render :partial => 'index'
+%h1
+  Documents
+
+=search_form("documents")
+
+%p
+  =link_to 'New document', new_document_path 
+
+%table.index_table
+  %thead
+    %th
+      Title
+    %th
+      Date
+    %th
+      Actions
+
+  %tbody
+    -for document in @documents
+      %tr{:class => cycle('even','odd'), :id => "document_#{document.id}"}
+        %td
+          =link_to document.title, document 
+        %td
+          =document.created_at.strftime("%Y/%m/%d")
+        %td
+          =button_to 'Destroy', document, :method => :delete
+
+%p
+  =link_to 'New document', new_document_path 

@@ -1,6 +1,4 @@
 class SoftwaresController < ApplicationController
-  before_filter :login_required
-  
   # GET /softwares
   # GET /softwares.xml
   def index

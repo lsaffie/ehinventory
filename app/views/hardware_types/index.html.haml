@@ -1,1 +1,22 @@
-=render :partial => 'index'
+%h1
+  Hardware Types
+
+%p
+  =link_to 'New hardware_type', new_hardware_type_path
+
+%table.index_table
+  %thead
+    %th
+      Name
+    %th
+      Actions
+
+  -for hardware_type in @hardware_types 
+    %tr{:class => cycle('even','odd'), :id => "hardware_type_#{hardware_type.id}"}
+      %td
+        =link_to hardware_type.name, hardware_type
+      %td
+        =link_to 'Destroy', hardware_type
+  
+%p
+  =link_to 'New hardware_type', new_hardware_type_path

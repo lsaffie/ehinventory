@@ -1,15 +1,4 @@
 %h1
   Editing hardware_type
 
--form_remote_for(@hardware_type) do |f| 
-  =f.error_messages 
-
-  %p
-    =f.label :name 
-    =f.text_field :name 
-  
-  %p
-    =f.submit "Update" 
-  
-=link_to_remote 'Show', :url => @hardware_type, :method => :get, :update => 'container'  |
-=link_to_remote 'List', :url => hardware_types_path, :method => :get, :update => 'container' 
+= render 'form'

@@ -1,0 +1,13 @@
+%table
+  =form_for @document, :html => { :multipart => true }, :remote => true do |f|
+    %tr
+      %td Title
+      %td=f.text_field :title
+    %tr
+      %td Body
+      %td=f.text_area :body
+    %tr
+      %td Attachments
+      %td=f.file_field :file
+    %tr
+      %td=f.submit "Submit"

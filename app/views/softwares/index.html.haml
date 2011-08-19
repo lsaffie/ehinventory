@@ -1,1 +1,33 @@
-=render :partial => 'index'
+%h1
+  Software
+
+=search_form("softwares")
+
+%p
+  =link_to 'New software', new_software_path 
+
+%table.index_table
+  %thead
+    %th
+      Name
+    %th
+      Owner
+    %th
+      Last Modified
+    %th
+      Actions
+
+  %tbody
+    -for software in @softwares 
+      %tr{:class => cycle('even','odd'), :id => "software_#{software.id}"}
+        %td
+          =link_to software.name, software
+        %td
+          =software.owner 
+        %td
+          =software.updated_at.strftime("%Y/%m/%d")
+        %td
+          =button_to 'Destroy', software, :method => :delete
+
+%p
+  =link_to 'New software', new_software_path 
