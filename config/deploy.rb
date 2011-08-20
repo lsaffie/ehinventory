@@ -11,9 +11,9 @@ set :repository,  "git@github.com:lsaffie/ehinventory.git"
 
 set :scm, :git
 
-role :web, "192.75.165.55"                          # Your HTTP server, Apache/etc
-role :app, "192.75.165.55"                          # This may be the same as your `Web` server
-role :db,  "192.75.165.55", :primary => true # This is where Rails migrations will run
+role :web, "itrac.ehealthinnovation.org"                          # Your HTTP server, Apache/etc
+role :app, "itrac.ehealthinnovation.org"                          # This may be the same as your `Web` server
+role :db,  "itrac.ehealthinnovation.org", :primary => true # This is where Rails migrations will run
 
 set :user, "deploy"
 set :use_sudo, false
