@@ -12,13 +12,9 @@
     #body_container
       #header
         =render 'layouts/menu' if user_signed_in?
-
-      %p.notice
-        =notice
-      %p.alert
-        =alert
-      #busy{:style => "display: none"}
-        %img{:src => '/images/loader.gif'}
       #container
+        %p.notice
+          =notice
+          =alert
         =yield
       #footer
