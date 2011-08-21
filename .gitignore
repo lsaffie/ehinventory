@@ -4,3 +4,4 @@ log/*.log
 log/
 tmp/
 *.swp
+*.mysql
