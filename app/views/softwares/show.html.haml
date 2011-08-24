@@ -31,7 +31,7 @@
       %b
         Description
     %td
-      =textilize(@software.description)
+      =raw RedCloth.new @software.description
 
 =link_to 'Edit', edit_software_path(@software)
 

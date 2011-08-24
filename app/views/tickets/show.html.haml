@@ -5,7 +5,7 @@
 %p
   %b
     Body:
-  =textilize(@ticket.body) 
+  =raw RedCloth.new(@ticket.body) 
 %p
   %b
     Hardware:

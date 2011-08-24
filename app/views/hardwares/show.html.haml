@@ -58,7 +58,7 @@
       %b
         Description:
     %td
-      =textilize(@hardware.description) 
+      =raw RedCloth.new(@hardware.description) 
 
 
 %p
