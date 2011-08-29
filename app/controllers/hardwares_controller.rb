@@ -47,9 +47,7 @@ class HardwaresController < ApplicationController
   # POST /hardwares.xml
   def create
     @hardware = Hardware.new(params[:hardware])
-    @hardware.hardware_type = HardwareType.find(params[:hardware_type]["hardware_type_id"])
-    @hardware.owner_id = params[:owner]['owner_id']
-    
+
     respond_to do |format|
       if @hardware.save
         flash[:notice] = 'Hardware was successfully created.'
@@ -67,12 +65,7 @@ class HardwaresController < ApplicationController
   # PUT /hardwares/1.xml
   def update
     @hardware = Hardware.find(params[:id])
-    if params[:hardware_type]
-      @hardware.hardware_type_id = params[:hardware_type]['hardware_type_id']
-    end
-    if params[:owner]
-      @hardware.owner_id = params[:owner]["owner_id"]
-    end
+
     respond_to do |format|
       if @hardware.update_attributes(params[:hardware])
         flash[:notice] = 'Hardware was successfully updated.'
