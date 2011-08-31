@@ -6,7 +6,7 @@
     %th Actions
 
   -for task in @uncompleted_tasks 
-    %tr
+    %tr{:class => cycle('even','odd')}
       %td=link_to task.task_name, edit_task_path(task)
       %td=format_date(task.created_at)
       %td=task.user.email

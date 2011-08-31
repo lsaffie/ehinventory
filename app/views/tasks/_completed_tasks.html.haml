@@ -8,7 +8,7 @@
     %th Assignee
     %th Actions
   -for task in @completed_tasks 
-    %tr
+    %tr{:class => cycle('even','odd')}
       %td=link_to task.task_name, edit_task_path(task)
       %td=format_date(task.updated_at)
       %td=task.user.email
