@@ -33,3 +33,11 @@ default_run_options[:pty] = true
 #     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
 #   end
 # end
+namespace :deploy do
+  desc "Symlinks the database.yml"
+  task :symlink_db, :roles => :app do
+    run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"                                      
+  end
+end
+
+after 'deploy:symlink', 'deploy:symlink_db'
