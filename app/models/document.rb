@@ -8,6 +8,6 @@ class Document < ActiveRecord::Base
   def self.search(search, page)
       find(:all,
            :conditions => ['title LIKE ? or body LIKE ?', "%#{search}%", "%#{search}%"],
-           :order => 'created_at DESC')
+           :order => 'updated_at DESC, created_at DESC')
   end
 end

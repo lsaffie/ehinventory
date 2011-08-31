@@ -85,6 +85,10 @@ hr {
       color: white; }
     #header ul li:hover {
       background: #222222; }
+    #header ul li .current {
+      height: 34px;
+      background: #222222;
+      font-weight: 900; }
 
 .logout_link {
   float: right;

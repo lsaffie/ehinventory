@@ -119,6 +119,12 @@ hr {
     &:hover {
       background: $light_gray;
     }
+
+    .current {
+      height: 34px;
+      background: $light_gray;
+      font-weight: 900;
+    }
   }
 }
 

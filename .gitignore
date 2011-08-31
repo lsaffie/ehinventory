@@ -5,3 +5,4 @@ log/
 tmp/
 *.swp
 *.mysql
+config/database.yml

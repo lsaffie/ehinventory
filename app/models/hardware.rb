@@ -17,7 +17,7 @@ class Hardware < ActiveRecord::Base
       find(:all, :conditions => ['hardware_type_id LIKE ?', "%#{type}"], 
            :order => "hardware_type_id, serial_number" )
     else
-      find(:all, :order => 'created_at DESC')
+      find(:all, :order => 'updated_at DESC, created_at DESC')
     end
   end
   
