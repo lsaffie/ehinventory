@@ -54,7 +54,7 @@ class TasksController < ApplicationController
       if @task.update_attributes(params[:task])
         @task.notify_assignee
         flash[:notice] = 'Task was successfully updated.'
-        format.html { redirect_to(@task) }
+        format.html { redirect_to(tasks_path) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
