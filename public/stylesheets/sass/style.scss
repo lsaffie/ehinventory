@@ -59,17 +59,7 @@ table.index_table {
 
 input {
   border: 1px solid gray;
-
-  &#document_title {
-      width: 500px;
-  }
-  &#search {
-    width: 100%;
-  }
-}
-
-textarea#document_body {
-    width: 500px;
+  width: 100%;
 }
 
 pre {
@@ -83,9 +73,8 @@ pre {
 .textarea {
   border: 1px solid $gray;
   padding: 5px;
-  width: 70%;
   height: 350px;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 hr {

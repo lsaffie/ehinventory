@@ -37,14 +37,8 @@ table.index_table {
     text-decoration: none; }
 
 input {
-  border: 1px solid gray; }
-  input#document_title {
-    width: 500px; }
-  input#search {
-    width: 100%; }
-
-textarea#document_body {
-  width: 500px; }
+  border: 1px solid gray;
+  width: 100%; }
 
 pre {
   background-color: #FAFAFA;
@@ -56,9 +50,8 @@ pre {
 .textarea {
   border: 1px solid #a9a9a9;
   padding: 5px;
-  width: 70%;
   height: 350px;
-  overflow: scroll; }
+  overflow-y: scroll; }
 
 hr {
   border: 0px;
