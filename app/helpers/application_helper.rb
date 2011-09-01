@@ -18,4 +18,8 @@ module ApplicationHelper
     render 'shared/search', :path => '/'+resource
   end
 
+  def current_link?(controller)
+    request.url.match(controller) ? {:class => 'current'} : nil
+  end
+
 end

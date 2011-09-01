@@ -13,18 +13,23 @@ body {
   padding: 0;
 }
 
+h1 {
+  text-align: center;
+}
+
 #container {
   padding: 0 20px;
+  margin: 0 15%;
 }
 
 table.index_table {
   border: 1px solid gray;
-  width: 700px;
+  width: 100%;
+  text-align: left;
   th {
     border-bottom: 1px solid black;
     background: #e0e0e0;
     width: 1%;
-    text-align: left;
   }
   td {
     padding: 5px 0;
@@ -59,7 +64,7 @@ input {
       width: 500px;
   }
   &#search {
-    width: 700px;
+    width: 100%;
   }
 }
 
