@@ -16,10 +16,15 @@ body {
 h1 {
   text-align: center;
 }
+h3 {
+  padding: 0;
+  margin: 0;
+}
 
 #container {
   padding: 0 20px;
   margin: 0 15%;
+  margin-top: 30px;
 }
 
 table.index_table {
@@ -123,8 +128,8 @@ hr {
 
     .current {
       height: 34px;
-      background: $light_gray;
-      font-weight: 900;
+      background: white;
+      color: $light_gray;
     }
   }
 }
