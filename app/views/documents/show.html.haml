@@ -1,12 +1,8 @@
 %h1
-  Documents
+  =@document.title
+  =@document.created_at.strftime("%m/%d/%Y")
 
 .textarea
-  #title
-    =@document.title
-  Created:
-  =@document.created_at.strftime("%m/%d/%Y")
-  %hr
   =raw RedCloth.new(@document.body).to_html
 
   -if @document.file_file_name

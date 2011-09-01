@@ -59,8 +59,15 @@ table.index_table {
 
 input {
   border: 1px solid gray;
-  width: 100%;
+
+  &#ticket_title {
+    width: 300px;
+  }
+  &#search {
+    width: 100%;
+  }
 }
+
 
 pre {
   background-color: #FAFAFA;
@@ -138,4 +145,13 @@ hr {
   border: 1px solid $gray;
   padding: 10px;
   margin: 10px;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table.show th, tr, td {
+  border: 1px solid $gray;
+  padding: 5px;
 }

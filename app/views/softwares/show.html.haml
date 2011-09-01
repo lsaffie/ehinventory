@@ -31,7 +31,7 @@
       %b
         Description
     %td
-      =raw RedCloth.new @software.description
+      =raw RedCloth.new(@software.description).to_html
 
 =link_to 'Edit', edit_software_path(@software)
 
