@@ -23,7 +23,7 @@ Ehinventory::Application.routes.draw do
 
   resources :owners
 
-  resources :tickets 
+  resources :tickets
 
   resources :documents do
     resources :tickets
@@ -32,13 +32,13 @@ Ehinventory::Application.routes.draw do
   resources :hardwares do
     resources :tickets
   end
-  
+
   resources :softwares do
     resources :tickets
   end
-  
+
   resources :assignments
-  
-  root :to => 'documents#index'
+
+  match "/" => redirect("/documents")
 
 end
