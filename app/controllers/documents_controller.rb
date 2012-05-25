@@ -28,6 +28,7 @@ class DocumentsController < ApplicationController
   # GET /documents/new.xml
   def new
     @document = Document.new
+    @document.attachments.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -38,6 +39,7 @@ class DocumentsController < ApplicationController
   # GET /documents/1/edit
   def edit
     @document = Document.find(params[:id])
+    @document.attachments.build
   end
 
   # POST /documents

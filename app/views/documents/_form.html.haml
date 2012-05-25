@@ -6,8 +6,9 @@
     %tr
       %td Body
       %td=f.text_area :body
-    %tr
-      %td Attachments
-      %td=f.file_field :file
+    =f.fields_for :attachments do |attachment|  
+      %tr
+        %td Attachments
+        %td=attachment.file_field :file
     %tr
       %td=f.submit "Submit"

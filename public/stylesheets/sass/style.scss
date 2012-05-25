@@ -87,6 +87,7 @@ pre {
   padding: 5px;
   height: 350px;
   overflow-y: scroll;
+  margin: 2px;
 }
 
 hr {
@@ -146,17 +147,12 @@ hr {
 #header {
   background: $gray2;
 }
-.file {
-  border: 1px solid $gray;
-  padding: 10px;
-  margin: 10px;
-}
+
 table {
   border-collapse: collapse;
   width: 100%;
 }
 
 table.show th, tr, td {
-  border: 1px solid $gray;
   padding: 5px;
 }

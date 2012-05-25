@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110815182548) do
+ActiveRecord::Schema.define(:version => 20120519174329) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "hardware_id"
@@ -19,15 +19,19 @@ ActiveRecord::Schema.define(:version => 20110815182548) do
     t.datetime "updated_at"
   end
 
+  create_table "attachments", :force => true do |t|
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.integer  "document_id"
+  end
+
   create_table "documents", :force => true do |t|
     t.string   "title"
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "file_file_name"
-    t.string   "file_content_type"
-    t.integer  "file_file_size"
-    t.datetime "file_updated_at"
   end
 
   create_table "groups", :force => true do |t|
@@ -51,8 +55,6 @@ ActiveRecord::Schema.define(:version => 20110815182548) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "hardware_type_id"
-    t.string   "brand"
-    t.string   "model"
   end
 
   create_table "owners", :force => true do |t|
